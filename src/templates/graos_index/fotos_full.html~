@@ -1,0 +1,40 @@
+<div class="block_full">
+<<<<<<< HEAD
+	<header class="block_header">
+		<h2>Fotos</h2>
+		<input  type="hidden" id="datepicker">
+	</header>
+	{% for galeria in lista_galeria %}
+		{% for imagem in lista_imagem%}
+			{% if imagem.galeria.idgaleria == galeria.idgaleria and imagem.capa_album%}
+=======
+	
+	<h2>Fotos</h2>
+	{% for galeria in lista_galeria %}
+		{% for imagem in galeria.capa_album%}
+>>>>>>> 6251b1c852485567cd1f7c488b1a24e4fd94fdc9
+				<div class="galeria_full_index">
+					<div class="img_video_full">
+						<a href="/bancoimagem/imagem/{{galeria.idgaleria}}/">
+							<img src="{{ MEDIA_URL }}{{ imagem.img_miniatura }}" alt="{{ imagem.vch_titulo }}" title="{{ imagem.vch_titulo }}" />
+						</a>
+					</div>
+<<<<<<< HEAD
+					<span>{{galeria.titulo|slice:"50"}}</span>
+				</div>
+			{% endif %}
+=======
+					<span>{{imagem.galeria.titulo|slice:"50"}}</span>
+				</div>
+		
+>>>>>>> 6251b1c852485567cd1f7c488b1a24e4fd94fdc9
+	
+		{% endfor%}
+	{% endfor %}
+
+<<<<<<< HEAD
+	<a href="/bancoimagem/galeria/" class="ver_mais">ver mais</a>
+=======
+	<a href="/bancoimagem/galeria/" class="ver_mais">ver mais +</a>
+>>>>>>> 6251b1c852485567cd1f7c488b1a24e4fd94fdc9
+</div>

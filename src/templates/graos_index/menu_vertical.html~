@@ -1,0 +1,55 @@
+<<<<<<< HEAD
+<dl id="paginas">
+{% if categorias %}
+    {% for categoria in categorias %}
+    
+                {%if categoria.url%}
+               
+    
+                <dt><a href="/page/{{categoria.url}}">{{categoria.titulo}}</a></dt>
+                
+                 {%else%}
+                 
+                 {{categoria.titulo}}
+                 
+                 {% endif %}
+                 
+    
+           
+        {% for pagina in paginas %}
+        
+            {% if pagina.categoria.int_idcategoria == categoria.int_idcategoria%}    
+        
+                <dd>
+	                <a href="/page/{{categoria.titulo}}/{{pagina.url}}">{{pagina.titulo}}</a>
+	
+                </dd>
+                
+            {% endif %}
+        {% endfor %}    
+
+    {% endfor %}
+    
+{% endif %}
+
+</dl>
+=======
+
+
+    {%for m in menu_vertical%}
+        <h2> {{m.nome}} </h2>
+        <dl id="menu_vertical">    
+            
+               {%for item in m.itens%}               
+                   <dt><a href="{{item.url}}">{{item.nome}}</a></dt>
+               
+                   {%for sitem in item.subitems%}
+                        <dd>
+                            <a href="{{sitem.url}}">{{sitem.nome}}</a>
+                        </dd>
+                    {%endfor%}
+                {%endfor%}
+        </dl>
+    {%endfor%}
+
+>>>>>>> a62c7d117f838a048d43ee5b5697ac7a49f41b10
