@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.utils import simplejson
 from django.http import HttpResponse
 
-    
+
 def mais_noticias(request):
     lista_mais_noticias = Noticia.objects.all().order_by('-dat_noticia')[:50]
     lista_noticias_mes = lista_mais_noticias.dates('dat_noticia', 'month').reverse()  

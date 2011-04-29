@@ -146,7 +146,7 @@ class Menu(models.Model):
         return self.nome
     
     def itens(self):
-        item = Item_Menu.objects.filter(menu = self).exclude(subitem <> None)
+        item = Item_Menu.objects.filter(menu = self).filter(subitem = None)
         return item
     
     class Meta:

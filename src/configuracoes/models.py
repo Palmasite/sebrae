@@ -166,6 +166,5 @@ class Item_Menu(models.Model):
         return Item_Menu.objects.filter(subitem = self) 
         
     class Meta:
-        unique_together = ("nome",)
         ordering = ('id',)
 

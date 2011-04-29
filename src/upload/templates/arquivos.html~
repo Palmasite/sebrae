@@ -5,18 +5,25 @@
 
 
 {%block conteudo%}
-
+<div id="conteudo_interno">
     {% for galeria in lista_galeria %}
-    
-        {{galeria.descricao}}
-        {% for doc in lista_arquivo %}
-            {% if doc.5 == galeria.int_idgaleria %}
-            
-                <img src="{{doc.4}}"/> {{doc.1}}
-             {%endif%}
-        
-        {%endfor%}
+        <h2>{{galeria.descricao}}</h2>
+        <div class="galeria_upload">   
+
+            {% for doc in lista_arquivo %}
+                
+                    {% if doc.5 == galeria.idgaleria %}  
+                        <div class="arquivo">              
+                            <a href="{{MEDIA_URL}}{{vch_arquivo}}"><img src="{{doc.4}}"/> </a>
+                            <strong>Arquivo</strong> : {{doc.1}}<br/>
+                            <strong>Resumo</strong> : {{doc.2}}</br>
+                            <strong>Galeria</strong> : {{galeria.descricao}}<br/>
+                            <strong>Data</strong> : {{doc.data}}
+                        </div>
+                     {%endif%}
+
+            {%endfor%}
+        </div>
     {% endfor %}
-
-
+</div>
 {% endblock %}

@@ -4,6 +4,5 @@ from paginasstaticas.views import pagina
 
 urlpatterns = patterns('',
     (r'^(?P<url_categoria>\w+)/(?P<url>\w+)/$', 'paginasstaticas.views.pagina'),
-    (r'^(?P<url_categoria>\w+)/$', 'paginasstaticas.views.pagina'),
 
 )

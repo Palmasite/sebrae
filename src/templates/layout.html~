@@ -49,8 +49,9 @@
 			{% block direita %}
 			<div id="coluna-direita">
 				{% include "graos_index/links_rapidos.html" %}
-		        {% include "graos_index/banner_direita.html" %}
-		        {% include "graos_index/links_direita.html" %}
+				{% include "graos_index/banner_direita.html" %}
+				{% include "graos_index/enquete.html" %}
+				{% include "graos_index/links_direita.html" %}
 			</div>
 			{% endblock %}
 			

@@ -3,6 +3,7 @@ from paginasstaticas.models import Categoria, Pagina
 from django.conf import settings
 
 class AdminPagina(admin.ModelAdmin):
+    list_display = ("titulo","url","categoria")
     
     class Media:
         model = Pagina

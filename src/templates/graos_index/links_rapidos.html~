@@ -8,7 +8,7 @@
  
 </script>
 
-<div class="block_ligth">
+<div class="block_ligth enquete">
 	<h2>Links Rapidos</h2>
 	<FORM NAME="linkform">
 		<select id="links_rapidos" name="links" onchange="nav()">

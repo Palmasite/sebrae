@@ -14,7 +14,7 @@
 {%block conteudo%}
 
 	<div id="conteudo_interno">
-	
+		<div id="content">
 			<h3>Vídeos</h3>
 	
 			{% for video in lista_imagem_video %}
@@ -57,6 +57,7 @@
 	
 			{% endfor %}
 
+		</div>
 		
 	</div>	
 {% endblock %}
