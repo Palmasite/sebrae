@@ -1,10 +1,20 @@
 from django.conf.urls.defaults import *
+<<<<<<< HEAD
 from link.views import todos_servicos, todos_links
+=======
+from link.views import todos_servicos
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
 
 
 urlpatterns = patterns('',
     (r'^maisservicos/', 'link.views.todos_servicos'),
+<<<<<<< HEAD
     (r'^todos/', 'link.views.todos_links')
                        
 
 )
+=======
+                       
+
+)
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba

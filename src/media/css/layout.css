@@ -37,6 +37,7 @@ input{border: none;height: 28px}
 #menu{width:100%;height: 50px;background:#435674;text-align: center}
 #content{width:1000px;background:#378264;margin:0 auto}
 #coluna-esquerda{width:200px;float:left}
+<<<<<<< HEAD
 
 #conteudo{float:left;margin: 0 10px;width:580px}
 #conteudo_interno{padding:10px;float:left;width:768px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
@@ -46,6 +47,12 @@ input{border: none;height: 28px}
 
 
 
+=======
+#conteudo{float:left;margin: 0 10px;width:580px}
+#conteudo_interno{padding:10px;float:left;width:768px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
+#conteudo_interno h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
+#conteudo_geral{float:left;width:1000px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
 #coluna-direita{width:200px;height:500px;float:left}
 #rodape{width:100%;height:150px;background:url("../images_portal/rodape_bg.png") #459 repeat-x;float:left}
 #image_rodape{width:1000px;height:85%;margin:0 auto;}
@@ -107,10 +114,17 @@ h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------
  * upload
  */
 
+<<<<<<< HEAD
 .galeria_upload{width:99%;background:#e5e5e5;margin-top:10px;padding:5px}
 .galeria_upload img{float:left;margin:10px}
 .galeria_upload .arquivo{width:237px;padding:5px;border:solid 1px #efefef;height:73px;background:#efefef;display:inline-block}
 .galeria_upload h3{margin:5px;}
+=======
+
+.galeria_upload{width:99%;background:#e5e5e5;margin-top:10px;padding:5px}
+.galeria_upload img{float:left;margin:10px}
+.galeria_upload .arquivo{width:250px;padding:5px;border:solid 1px #efefef;height:100px;background:#efefef;display:inline-block}
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
 
 /*
  * Area_restrita
@@ -302,6 +316,7 @@ ul.eventos_lista li span{font-weight: bold}
 #formperfil ul.errorlist{color: #C30}
 #formperfil form{margin-top: 20px}
 
+<<<<<<< HEAD
 
 
 
@@ -318,3 +333,5 @@ ul.eventos_lista li span{font-weight: bold}
 
 
 
+=======
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
