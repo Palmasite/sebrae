@@ -1,0 +1,13 @@
+<div id="noticia_box">
+{% for noticia in noticias_destaque%}
+	<div id="noticia_destaque_{{forloop.counter}}" class="noticia_destaque">
+			<img width="580" height="230" src="{{MEDIA_URL}}{{noticia.img_foto}}" />
+			<div class="noticia_destaque_descricao"></div>
+			<div class="destaque_conteudo">
+				<a onclick="noticia_destaque_anterior()" id="ctr_prev"><img src="{{MEDIA_URL}}images_portal/noticia/prev_noticia.png" /></a>
+					<span>{{noticia.vch_titulo}}</span>
+				<a onclick="noticia_destaque_proximo()" id="ctr_next"><img src="{{MEDIA_URL}}images_portal/noticia/next_noticia.png" /></a>
+			</div>
+	</div>
+{%endfor%}
+</div>

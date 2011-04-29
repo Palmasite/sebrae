@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{%  block titulo %}Videos{% endblock %}
+
+{% block direita %}{% endblock %}
+
+
+{%block conteudo%}
+
+{% load nomemes %}
+
+<div id="conteudo_interno">
+    {% for galeria in lista_galeria %}
+        <h2>{{galeria.descricao}}</h2>
+        <div class="galeria_upload">   
+           {% for mes in lista_arquivo_mes %}
+                 <h3>{{mes.month|mes}}/{{mes.year}}</h3>
+                {% for doc in lista_arquivo %}
+                
+                    
+                        {% if doc.5 == galeria.idgaleria %}
+                         
+                            <div class="arquivo">              
+                                <a href="{{MEDIA_URL}}{{doc.3}}"><img src="{{doc.4}}"/> </a>
+                                <strong>Arquivo</strong> : {{doc.1}}<br/>
+                                <strong>Galeria</strong> : {{galeria.descricao}}<br/>
+                                <strong>Data</strong> : {{doc.6|date:"d/m"}}
+                            </div>
+                         {%endif%}
+
+                {%endfor%}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

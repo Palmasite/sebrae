@@ -1,0 +1,11 @@
+{% for menu in menu_horizontal %}
+    <div id="menu">
+			    <ul>
+			    {% for item in menu.itens %}
+				    <li>
+    				    <a href="{{item.url}}">{{item.nome}}</a>
+				    </li>
+                {%endfor%}
+			    </ul>
+    </div>
+{%endfor%}
