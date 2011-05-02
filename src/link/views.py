@@ -9,11 +9,10 @@ def todos_servicos(request):
     return render_to_response('mais_servico.html',locals(), context_instance=RequestContext(request))
 
 
-<<<<<<< HEAD
+
 def todos_links(request):
 
     lista_de_links = Link.objects.all()
     
     return render_to_response('todos_links.html',locals(), context_instance=RequestContext(request))
-=======
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
+
