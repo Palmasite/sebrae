@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Links{% endblock %}
+
+
+
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+
+     <table  id="links">
+			<thead>
+				<tr>
+				
+					<th>NOME LINK</th>
+					<th>LINK</th>
+			    
+				</tr>
+			</thead>
+		<tbody>
+			{% for link in lista_de_links %}
+				<tr class="{% cycle 'linha1' 'linha2' %}">
+				
+			         <td>{{link.vch_nome}}</td>
+                     <td><a href="{{link.vch_link}}">{{link.vch_link}}<a></td>
+				
+					
+				</tr>
+			{%endfor%}
+		</tbody>
+		</table>
+
+</div>
+
+
+{% endblock  %}
+
+
+{% block direita %}{% endblock %}
+
+

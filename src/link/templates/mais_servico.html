@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+<<<<<<< HEAD
+=======
+{%  block titulo %}Galeria imagens{% endblock %}
+
+
+
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Serviços</h3>
+	{% for servicos in link_servico_destaque %}
+	<div class="servico_full_index">
+		<div class="img_servico_full">			
+			<a target="_blank" href="{{ servicos.vch_link }}">
+				<img src="{{ MEDIA_URL }}{{ servicos.img_foto }}" alt="{{ servicos.vch_nome }}" title="{{ servicos.vch_nome }}" />
+			</a>		
+		</div>
+		<span>{{servicos.vch_nome}}</span>
+	</div>
+	
+	{%endfor%}
+</div>
+
+{% endblock %}
+
+<<<<<<< HEAD
+{% block direita %}{% endblock %}
+=======
+{% block direita %}{% endblock %}
+>>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba

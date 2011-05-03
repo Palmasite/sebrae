@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{%  block titulo %}espiga.com{% endblock %}</title>
+		<link rel="stylesheet" href="{{MEDIA_URL}}css/layout.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{MEDIA_URL}}css/jquery_ui/jquery-ui-1.8.11.custom.css" type="text/css" media="screen" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		
+		{% block includecss %}{%endblock%}
+	</head>
+	<body>
+		<div id="head">
+			<div id="topo">
+				<div id="cabecalho">
+					{% block cabecalho %}{% include "graos_index/menu_horizontal.html" %}{% endblock %}
+				</div>
+				<div id="logo">
+					<img src="{{MEDIA_URL}}images_portal/logo.png">
+					</img>
+				</div>
+
+			</div>
+		</div>
+		
+			
+			{% include "graos_index/full_banner.html" %}
+		
+		<div id="content">
+			{% block colunaEsquerda %}
+				<div id="coluna-esquerda">
+					{% include "graos_index/area_restrita.html" %}
+                	{% include "graos_index/menu_vertical.html" %}
+
+				</div>
+			{% endblock %}
+			
+			{% block conteudo %}
+			<div id="conteudo">
+				
+				{% include "graos_index/noticias_destaque.html" %}
+	            {% include "graos_index/noticias_lista.html" %}
+	            {% include "graos_index/eventos_full.html" %}
+	            {% include "graos_index/fotos_full.html" %}
+	            {% include "graos_index/links_destaque.html" %}
+				
+			</div>
+			{% endblock %}
+			
+			{% block direita %}
+			<div id="coluna-direita">
+               	{% include "graos_index/enquete.html" %}
+				{% include "graos_index/links_rapidos.html" %}
+		        {% include "graos_index/banner_direita.html" %}
+		        {% include "graos_index/links_direita.html" %}
+			</div>
+			{% endblock %}
+			
+			<div id="aux">
+			</div>
+		</div>
+		<div id="rodape">
+			<div id="image_rodape">
+				{% include "graos_index/menu_rodape.html" %}
+			</div>
+			<div id="rodape_palmasite">
+				<div id="info">
+				Serviço de Apoio às Micro e Pequenas Empresas do Estado Tocantins - Sebrae/TO     
+				CNPJ : 25.089.962/0001-90
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery_ui/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}/js/paginas_internas/index.js"></script>
+
+	{%block includejs%}{%endblock%}
+	
+	{% block scriptjs%}{% endblock %}
+

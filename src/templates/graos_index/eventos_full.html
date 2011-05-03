@@ -1,0 +1,15 @@
+<div class="eventos_lista block_full">
+	<header class="block_header">
+		<h2>Eventos</h2>
+		<img src="{{MEDIA_URL}}images_portal/eventos/buscar_evento.png" />
+	</header>
+	<ul class="eventos_lista">
+		{% for evento in ultimos_eventos %}
+		<li><a href="/agenda/date/{{evento.inicio|date:"d" }}/{{evento.inicio|date:"m" }}/{{evento.inicio|date:"Y" }}/"><span>{{ evento.inicio|date:"d / M" }} - </span>{{ evento.titulo }}...</a></li>
+		{% endfor %}
+		
+	</ul>
+	
+	<a class="ver_mais">ver mais</a>
+	
+</div>

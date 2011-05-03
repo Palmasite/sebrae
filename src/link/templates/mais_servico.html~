@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+
+
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Serviços</h3>
+	{% for servicos in link_servico_destaque %}
+	<div class="servico_full_index">
+		<div class="img_servico_full">			
+			<a target="_blank" href="{{ servicos.vch_link }}">
+				<img src="{{ MEDIA_URL }}{{ servicos.img_foto }}" alt="{{ servicos.vch_nome }}" title="{{ servicos.vch_nome }}" />
+			</a>		
+		</div>
+		<span>{{servicos.vch_nome}}</span>
+	</div>
+	
+	{%endfor%}
+</div>
+
+{% endblock %}
+
+{% block direita %}{% endblock %}
