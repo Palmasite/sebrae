@@ -22,28 +22,10 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
     
     
     arquivos = Arquivo.objects.all()
-<<<<<<< HEAD
-    
-    lista_arquivo_mes = arquivos.dates('dat_publicacao','month').reverse()
-
-=======
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
     lista_arquivo = ()
      
     for a in arquivos:
         if a.vch_arquivo:
-<<<<<<< HEAD
-            #raise Exception(a.vch_arquivo)
-            extensao = str(a.vch_arquivo).split('.')[-1]
-            
-            if extensao == 'doc' or extensao == 'docx':
-                lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,doc,a.galeria.idgaleria,a.dat_publicacao),)
-                
-            if extensao == 'pdf':
-                lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,pdf,a.galeria.idgaleria,a.dat_publicacao),)
-            if extensao == 'xls' or extensao == 'xlsx':
-                lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,excel,a.galeria.idgaleria,a.dat_publicacao),)
-=======
             extensao = str(a.vch_arquivo).split('.')[-1]
             
             if extensao == 'doc' or extensao == 'docx':
@@ -53,7 +35,6 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
                 lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,pdf,a.galeria.idgaleria,),)
             if extensao == 'xls' or extensao == 'xlsx':
                 lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,excel,a.galeria.idgaleria,),)
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
        
 
     return render_to_response('arquivos.html', locals(), context_instance=RequestContext(request))

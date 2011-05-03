@@ -316,15 +316,3 @@ ul.eventos_lista li span{font-weight: bold}
 #formperfil ul.errorlist{color: #C30}
 #formperfil form{margin-top: 20px}
 
-
-/*
- * links
- */
- 
-#links {width:100%}
-#links td{padding:10px}
-#links .linha1{background:#ddd}
-#links .linha2{background:#eee}
-#links thead tr th{background:#ccc; padding:10px;}
-#nome_link {width:20%}
-
