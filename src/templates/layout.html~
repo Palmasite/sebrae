@@ -19,6 +19,7 @@
 					<img src="{{MEDIA_URL}}images_portal/logo.png">
 					</img>
 				</div>
+				{% include "graos_index/busca.html" %}
 
 			</div>
 		</div>
@@ -27,6 +28,12 @@
 			{% include "graos_index/full_banner.html" %}
 		
 		<div id="content">
+		<div id="bradcumbs">
+		    {% block bradcumb %}
+
+		    {% endblock %}
+		</div>
+		
 			{% block colunaEsquerda %}
 				<div id="coluna-esquerda">
 					{% include "graos_index/area_restrita.html" %}
@@ -65,7 +72,7 @@
 			</div>
 			<div id="rodape_palmasite">
 				<div id="info">
-				Serviço de Apoio às Micro e Pequenas Empresas do Estado Tocantins - Sebrae/TO
+				Serviço de Apoio às Micro e Pequenas Empresas do Estado Tocantins - Sebrae/TO     
 				CNPJ : 25.089.962/0001-90
 				</div>
 			</div>

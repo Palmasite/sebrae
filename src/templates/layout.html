@@ -18,7 +18,9 @@
 				<div id="logo">
 					<img src="{{MEDIA_URL}}images_portal/logo.png">
 					</img>
+					{% include "graos_index/busca.html" %}
 				</div>
+				
 
 			</div>
 		</div>
@@ -27,6 +29,12 @@
 			{% include "graos_index/full_banner.html" %}
 		
 		<div id="content">
+		<div id="bradcumbs">
+		    {% block bradcumb %}
+
+		    {% endblock %}
+		</div>
+		
 			{% block colunaEsquerda %}
 				<div id="coluna-esquerda">
 					{% include "graos_index/area_restrita.html" %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
   {% block bradcumb %}
-		        <a href="/bancoimagem/galeria/">Voltar</a>
+		        <a href="">Voltar</a>
   {% endblock %}
 
 {%  block titulo %}Galeria imagens{% endblock %}

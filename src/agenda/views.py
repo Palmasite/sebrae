@@ -6,13 +6,13 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 
 def eventos(request):
-    
+    agendas = Agenda.objects.all();
     eventos = Eventos.objects.all();
     
     return render_to_response('agenda.html', locals(), context_instance=RequestContext(request))
     
 def date(request,d,m,a):
-    
+    agendas = Agenda.objects.all();
     eventos = Eventos.objects.all();
     dia = d
     mes = m

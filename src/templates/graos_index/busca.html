@@ -1,0 +1,8 @@
+{% for menu in menu_horizontal %}
+    <div id="grao_buscar">
+	    <form method="GET" action="/noticia/buscarnoticia/">
+				<input type="text" name='buscar' />
+				<input type="submit" value="Buscar"/>
+	    </form>
+    </div>
+{%endfor%}
