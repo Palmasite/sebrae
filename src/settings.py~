@@ -112,11 +112,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.ultimo_video",
     "processors.publicidade",
     "processors.enquete",
-<<<<<<< HEAD:src/settings.py~
-=======
     "processors.menu",
->>>>>>> a62c7d117f838a048d43ee5b5697ac7a49f41b10:src/settings.py~
+    
+    # django 1.2 somente 
+    'django.contrib.messages.context_processors.messages' , 
+    # exigido pelo django-admin-tools 
+    'django.core.context_processors.request' , 
 )
+
+ADMIN_TOOLS_THEMING_CSS = 'css/theming.css'
+
 AUTH_PROFILE_MODULE = 'espiga.perfilinicial'
 
 MIDDLEWARE_CLASSES = (
@@ -146,6 +151,13 @@ EMAIL_PORT = 587
 
 
 INSTALLED_APPS = (
+    # exigido pelo django-admin-tools
+    'admin_tools' , 
+    'admin_tools.theming' , 
+    'admin_tools.menu' , 
+    'admin_tools.dashboard' ,  
+ 
+    # exigido pelo django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -154,30 +166,22 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.comments',
+    
+    # meus aplicativos instalados ...
     'noticia',
     'bancoimagem',
-<<<<<<< HEAD:src/settings.py~
-=======
     'configuracoes',
->>>>>>> a62c7d117f838a048d43ee5b5697ac7a49f41b10:src/settings.py~
     'enquete',
     'perfilinicial',
     'video',
     'upload',
-<<<<<<< HEAD:src/settings.py~
-    #'servico',
-    'publicidade',
-    #'configuracoes',
-    'link',
-    'contato',
-    'agenda',
-=======
     'publicidade',
     'link',
     'contato',
     'agenda',
     'paginasstaticas',
->>>>>>> a62c7d117f838a048d43ee5b5697ac7a49f41b10:src/settings.py~
+    'podcast',
+    'dirigentes',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

@@ -21,13 +21,5 @@
 		</select>
 	</FORM>
 	
-	{% for link in link_rapidos %}
-		{% if link.img_foto != "" %}
-			
-			<a href="{{link.vch_link}}" target="_blank">
-				<img style="width:150px" src="{{MEDIA_URL}}{{link.img_foto}}"   />
-			</a>
-		{% endif%}
-	{% endfor %}
 	
 </div>

@@ -8,7 +8,7 @@
  
 </script>
 
-<div class="block_ligth enquete">
+<div class="block_ligth">
 	<h2>Links Rapidos</h2>
 	<FORM NAME="linkform">
 		<select id="links_rapidos" name="links" onchange="nav()">
@@ -21,13 +21,17 @@
 		</select>
 	</FORM>
 	
-	{% for link in link_rapidos %}
-		{% if link.img_foto != "" %}
-			
-			<a href="{{link.vch_link}}" target="_blank">
-				<img style="width:150px" src="{{MEDIA_URL}}{{link.img_foto}}"   />
-			</a>
-		{% endif%}
-	{% endfor %}
+	
+
+
+	
+	<a href="{{publicidade1.vch_link}}" target="_blank">
+		<img style="width:150px" src="{{MEDIA_URL}}{{publicidade1.img_foto}}"   />
+	</a>
+	
+    <a href="{{publicidade2.vch_link}}" target="_blank">
+		<img style="width:150px" src="{{MEDIA_URL}}{{publicidade2.img_foto}}"   />
+	</a>
+
 	
 </div>

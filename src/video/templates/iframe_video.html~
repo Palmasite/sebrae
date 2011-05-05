@@ -1,0 +1,40 @@
+
+
+
+{% for vi in video %}
+
+    {% if vi.vch_url %}
+	    {{vi.vch_url|safe}}
+	{% else %}
+
+        <div id="mediaplayer"></div>
+
+	{% endif %}
+{% endfor %}
+
+
+{%block includejs%}
+    <script type="text/javascript" src="{{MEDIA_URL}}js/player/jwplayer.js"></script>
+    <script type="text/javascript" src="{{MEDIA_URL}}js/player/swfobject.js"></script>
+
+{% endblock %}
+
+	
+{% block scriptjs %}
+{% for vi in video %}
+    {% if vi.vch_arquivo %}
+   <script type="text/javascript">
+		jwplayer("mediaplayer").setup({
+			flashplayer: "{{MEDIA_URL}}js/player/player.swf",
+			file: "{{MEDIA_URL}}{{vi.vch_arquivo}}",
+			image: "{{MEDIA_URL}}{{vi.img_foto}}"
+		});
+	</script>
+	{% endif %}
+{% endfor %}
+
+{% endblock %}
+
+
+
+

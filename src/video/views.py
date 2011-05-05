@@ -8,12 +8,17 @@ def galeria(request):
     
     lista_imagem_video = ()
     
+    
     for lv in lista_video:
-        video = lv.vch_url.split(" ")
-        idvideo = video[6].split("/")
-        idfoto = idvideo[4][:-1]
         
-        lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto, idfoto,),)
+        if lv.vch_url:
+            video = lv.vch_url.split(" ")
+            idvideo = video[3].split("/")
+            idfoto = idvideo[4][:-1]
+            
+            lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto, idfoto,),)
+        else:
+            lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto,),)
         
         
     #raise Exception(lista_imagem_video)

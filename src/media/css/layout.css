@@ -37,30 +37,19 @@ input{border: none;height: 28px}
 #menu{width:100%;height: 50px;background:#435674;text-align: center}
 #content{width:1000px;background:#378264;margin:0 auto}
 #coluna-esquerda{width:200px;float:left}
-<<<<<<< HEAD
-
-#conteudo{float:left;margin: 0 10px;width:580px}
-#conteudo_interno{padding:10px;float:left;width:768px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
-#conteudo_interno h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
-
-#conteudo_geral{float:left;width:1000px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
-
-
-
-=======
 #conteudo{float:left;margin: 0 10px;width:580px}
 #conteudo_interno{padding:10px;float:left;width:768px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
 #conteudo_interno h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
 #conteudo_geral{float:left;width:1000px;border: solid 1px #EAEAEA;background:#f5f5f5;text-align: left;margin-left:10px}
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
 #coluna-direita{width:200px;height:500px;float:left}
-#rodape{width:100%;height:150px;background:url("../images_portal/rodape_bg.png") #459 repeat-x;float:left}
-#image_rodape{width:1000px;height:85%;margin:0 auto;}
-#rodape_palmasite{color:#fff;width:1000px;height:10%;margin:5px auto;text-align: left}
+#rodape{width:100%;height:300px;background:url("../images_portal/rodape_bg.png") repeat-x;float:left}
+#image_rodape{width:1000px;height:85%;margin:0 auto;background:url("../images_portal/img_rodape_bg.png") no-repeat}
+#rodape_palmasite{color:#fff;width:1000px;height:5%;margin:0 auto;text-align: left;background-color:#1F5396;padding:5px 0}
+#info{margin:0 10px}
 /*
  * logo
  */
-#logo{width:1000px;margin:0 auto;text-align:left;padding:15px}
+#logo{width:1000px;margin:15px auto;text-align:left;padding:15px}
 #logo img{}
 /*
  * menu
@@ -74,7 +63,10 @@ input{border: none;height: 28px}
  * Graos
  */
 
-h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------Primeira Cor do sistema*/
+h2.border{padding:5px 2px;border-left:solid 8px #2F5F9D} /* ---------------------------Primeira Cor do sistema*/
+h2.bg{padding:4px 2px;background:url("../images_portal/h2_bg.png") no-repeat ;color:#fff} /* ---------------------------Primeira Cor do sistema*/
+h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
+
 .dados{padding:5px;border:solid 1px #fff;margin-top:10px;text-align: left}
 .block_ligth{padding:15px;background:#F5F5F5;margin-bottom:10px;border:solid 1px #EAEAEA}
 .block_ligth a{font-weight: bold;text-decoration: none;color:#000;margin:10px 0;display:block}
@@ -104,6 +96,18 @@ h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------
 #menu_vertical dd:hover{background:#EFEFEF}
 
 /*
+   Menu Rodape
+*/
+
+.menu_rodape{width:65%;margin:0 auto;padding:60px 0;}
+.menu_rodape dl{width:100px;margin:0 auto;display:inline-block;}
+.menu_rodape a{color:#fff}
+.menu_rodape dl dt{font-size:16px;font-weight: bold}
+.menu_rodape dl dt dd{font-size:12px;}
+
+
+
+/*
  * full banner
  */
 
@@ -114,17 +118,10 @@ h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------
  * upload
  */
 
-<<<<<<< HEAD
-.galeria_upload{width:99%;background:#e5e5e5;margin-top:10px;padding:5px}
-.galeria_upload img{float:left;margin:10px}
-.galeria_upload .arquivo{width:237px;padding:5px;border:solid 1px #efefef;height:73px;background:#efefef;display:inline-block}
-.galeria_upload h3{margin:5px;}
-=======
 
 .galeria_upload{width:99%;background:#e5e5e5;margin-top:10px;padding:5px}
 .galeria_upload img{float:left;margin:10px}
 .galeria_upload .arquivo{width:250px;padding:5px;border:solid 1px #efefef;height:100px;background:#efefef;display:inline-block}
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
 
 /*
  * Area_restrita
@@ -149,13 +146,13 @@ h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------
 .galeria_full_index span{margin-left:15px;}
 
 /*
- * servicos_full
+ * links_full
  */
  
-.servico_full_index{width:139px;float:left;height: 100px}
-.img_servico_full img{width:87px; height: 68px;margin:4px; border: solid 1px #000; padding: 2px}
-.img_servico_full{width:102px; height: 76px;padding:2px;overflow: hidden;float:left;margin:10px}
-.servico_full_index span{margin:1px;}
+.servico_full_index{width:185px;float:left;height: 100px}
+.img_servico_full img{margin:0 auto;}
+.img_servico_full{width:60px; height: 60px;overflow: hidden;float:left;margin:5px;border: solid 1px #000;text-align:center}
+.servico_full_index span{margin:30px 3px;display:block;float:left;}
 
 /*
  * netWorks_ligth
@@ -178,6 +175,7 @@ h2{padding:5px 2px;border-left:solid 8px #123345} /* ---------------------------
  * enquete
  */
 .enquete{text-align:center}
+.enquete label{margin-top:3px}
 .enquete span{width:120px;margin-top:5px}
 .enquete button{width:61px;margin-left:20px}
 /*
@@ -240,12 +238,14 @@ ul.eventos_lista li span{font-weight: bold}
 /* noticia detalhadas */
 
 .noticia_detalhada{margin: 20px}
+.noticia_detalhada img{height:78px;width:168px;float:left;margin:10px}
 .noticia_detalhada h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
 .noticia_detalhada p {color: #666;margin-bottom: 20px}
-#noticia_date{font-size:10px;margin: 5px}
-#noticia_titulo{font-size:15px; font-weight: bold}
-#noticia_conteudo{margin:5px}
-#noticia_autor{text-align: right;}
+#noticia_date{font-size:10px;margin: -3px 5px 5px 0}
+#noticia_titulo{font-size:15px; font-weight: bold;margin-top:5px}
+#noticia_conteudo{margin:5px;}
+#noticia_conteudo p{margin:5px;color:#333}
+#noticia_autor{text-align: right;color:#666}
 
 
 
@@ -316,22 +316,46 @@ ul.eventos_lista li span{font-weight: bold}
 #formperfil ul.errorlist{color: #C30}
 #formperfil form{margin-top: 20px}
 
-<<<<<<< HEAD
 
 
 
-/*
- * links
- */
- 
-#links {width:100%}
-#links td{padding:10px}
-#links .linha1{background:#ddd}
-#links .linha2{background:#eee}
-#links thead tr th{background:#ccc; padding:10px;}
-#nome_link {width:20%}
+
+/* podcasts*/
+.podcasts{float:left;display:inline;width: 95%}
+.podcasts h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
+.podcasts ul{list-style: none;}
+.podcasts li{margin:20px}
+.podcasts h4{color: #666666;font-size:12px}
+.podcasts .date { 
+	background-color: #EEEEEE;
+    border-right: 5px solid #CCCCCC;
+    float:left;
+    color: #666666;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-right: 10px;
+    padding: 5px 0;
+    text-align: center;
+    width: 90px;}
+
+.podcasts .conteudo{height: 22px;}
 
 
 
-=======
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
+
+/*  Dirigentes */
+.dirigente{margin:5px;width: 749px; height: 120px;}
+.dirigente_foto{float:left; margin:5px; width: 100px;background:#fff;border:solid 1px #666;float:left;padding:4px;margin-right: -80px;box-shadow: 5px 5px 10px #666;-webkit-box-shadow: 5px 5px 10px #666;-moz-box-shadow: 5px 5px 10px #666; height: 100px;
+
+}
+.dirigente_nome safe{margin-left:95px}
+.dirigente_descricao{margin-left:132px}
+
+
+
+
+
+
+
+

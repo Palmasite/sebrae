@@ -20,7 +20,6 @@ urlpatterns = patterns('',
     (r'^logout/', 'views.sair'),
     (r'^recuperar_senha/$', 'password_reset', {'template_name': 'accounts/registration/password_reset_form.html', 'email_template_name':'accounts/registration/password_reset_email.html', 'post_reset_redirect':'accounts/login/'}),
     
-    
     (r'^noticia/', include('noticia.urls')),
     (r'^agenda/', include('agenda.urls')),
     (r'^bancoimagem/', include('bancoimagem.urls')),
@@ -31,5 +30,14 @@ urlpatterns = patterns('',
     (r'^perfil/', include('perfilinicial.urls')),
     (r'^', include('paginasstaticas.urls')),
     (r'^arquivos/', include('upload.urls')),
+    (r'^podcasts/', include('podcast.urls')),
+    (r'^dirigentes/', include('dirigente.urls')),
+
+)
+
+# exigido pelo django-admin-tools
+urlpatterns += patterns('',
+    
+    url(r'^admin_tools/', include('admin_tools.urls')),
 
 )

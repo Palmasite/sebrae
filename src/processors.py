@@ -8,6 +8,8 @@ from enquete.models import Enquete, Escolha
 from configuracoes.models import Menu
 from django.db import connection
 
+import random 
+
 def auth(request):
     #auth = False
     #if request.user.is_authenticated():
@@ -24,11 +26,15 @@ def ultimo_video(request):
     
     
     for lv in ultimo_video:
-        video = lv.vch_url.split(" ")
-        idvideo = video[6].split("/")
-        idfoto = idvideo[4][:-1]
         
-        lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto, idfoto,),)
+        if lv.vch_url:
+            video = lv.vch_url.split(" ")
+            idvideo = video[3].split("/")
+            idfoto = idvideo[4][:-1]
+        
+            lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto, idfoto,),)
+        else:
+            lista_imagem_video = lista_imagem_video + ((lv.int_idvideo, lv.vch_titulo , lv.img_foto,),)
         
     return locals()
 
@@ -39,6 +45,16 @@ def publicidade(request):
     publicidade_rodape = Publicidade.objects.filter(tipo="3")
     publicidade_esquerda = Publicidade.objects.filter(tipo="4")
     publicidade_full_banner = Publicidade.objects.filter(tipo="5")
+    
+    
+    #PUBLICIDADES RANDOMICAS
+    
+    publicidades = Publicidade.objects.select_related().filter(tipo = 2)
+    if publicidades:
+        publicidade1 = random.choice(publicidades.all())
+        publicidade2 = random.choice(publicidades.all())
+    
+    
     
     return locals()
 

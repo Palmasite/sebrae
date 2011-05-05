@@ -4,6 +4,13 @@ from django.conf import settings
 from publicidade.models import Publicidade
 
 
+class AdminPublicidade(admin.ModelAdmin):
+    
+
+
+admin.site.register(Publicidade)
+
+
 
 
     

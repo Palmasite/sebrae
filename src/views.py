@@ -25,7 +25,7 @@ from agenda.models import Eventos
 from enquete.models import Enquete, Escolha
 from publicidade.models import Publicidade
 
-
+import random
 
 def index(request):
     #verifica se ta authenticado
@@ -59,8 +59,12 @@ def index(request):
 
     
     
+    publicidades = Publicidade.objects.select_related().filter(tipo = 2)
     
-    
+    if publicidades:
+        publicidade1 = random.choice(publicidades.all())
+        publicidade2 = random.choice(publicidades.all())
+
     
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 

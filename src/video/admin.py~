@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 """ Admin Arquivo """
 class VideoAdmin(admin.ModelAdmin):
 	
-    list_display = ('vch_titulo', 'dat_dataenvio', 'boo_ativo', 'foto',)
+    list_display = ('vch_titulo', 'dat_dataenvio', 'boo_ativo',)
     list_filter = ['vch_titulo']
     search_fields = ('vch_titulo',)
     list_per_page = 10
@@ -22,5 +22,5 @@ class VideoAdmin(admin.ModelAdmin):
     
     """ Altera o formulario arquivo se for da comunicacao mostra o combo com todas as secretarias se nao esconde o campo secretaria """
 
-
+admin.site.register(Video, VideoAdmin)
 

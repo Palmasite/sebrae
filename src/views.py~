@@ -25,7 +25,7 @@ from agenda.models import Eventos
 from enquete.models import Enquete, Escolha
 from publicidade.models import Publicidade
 
-
+import random
 
 def index(request):
     #verifica se ta authenticado
@@ -50,21 +50,21 @@ def index(request):
     # Menu Vertical
     categorias = Categoria.objects.all()
     paginas = Pagina.objects.all()
-<<<<<<< HEAD
-
-
 
     #lista Links
     
     link_servico_destaque = Link.objects.filter(boo_destaque = True).filter(categoria = 3)[:6]# para servicos
     link_rapidos = Link.objects.filter(categoria = 4) #links rapidos
     link_rapidos_destaque = Link.objects.filter(categoria = 1) #links rapidos destaque
-=======
->>>>>>> a62c7d117f838a048d43ee5b5697ac7a49f41b10
+
     
     
+    publicidades = Publicidade.objects.select_related().filter()
     
-    
+    if publicidades:
+        publicidade1 = random.choice(publicidades.all())
+        publicidade2 = random.choice(publicidades.all())
+
     
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 

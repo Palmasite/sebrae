@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block titulo %}Dirigente {%endblock%}
+
+
+{%block conteudo%}
+<div id="conteudo_interno">
+
+    <h3>Dirigentes</h3>
+	
+	<div class='dirigente'>
+	{% for dir in dirigentes %}
+	   
+    	<div class='dirigente_foto'><img src="{{MEDIA_URL}}{{dir.img_foto}}" ></div>
+		<div class='dirigente_nome'><safe>Nome:</safe>{{dir.nome}}</div>
+		<div class='dirigente_descricao'><safe>Dados:</safe>{{dir.descricao|safe}}</div>
+	   
+	{% endfor %}
+	
+	</div>
+	
+</div>
+{% endblock %}
+
+{% block direita %}
+{% endblock %}
+

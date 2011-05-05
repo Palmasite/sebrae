@@ -1,0 +1,23 @@
+{% if publicidade_full_banner %}
+	<ul id="full_banner">
+		{% for banner in publicidade_full_banner%}
+		     {% if banner.img_foto != "" %}
+			<li class="banner_image" id="fullbanner-{{forloop.counter }}"> 
+				<a href=""><img src="{{MEDIA_URL}}{{banner.img_foto}}" /></a>
+			</li>
+		{% else %}{% if banner.vch_arquivo != "" %}  
+		
+                <object type="application/x-shockwave-flash" data="{{MEDIA_URL}}/{{banner.vch_arquivo}}" width="945" height="232" wmode="transparent">
+
+                <param name="loop" value="true">
+                <param name="menu" value="false">
+                <param name="wmode" value="transparent">
+                </object>
+		
+		{% endif %}{% endif %}
+		{%endfor%}
+	</ul>
+{%endif%}
+
+
+

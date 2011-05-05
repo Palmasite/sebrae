@@ -8,8 +8,7 @@ from django.contrib.auth.models import User
 """ Admin Arquivo """
 class VideoAdmin(admin.ModelAdmin):
 	
-    list_display = ('vch_titulo', 'dat_dataenvio', 'boo_ativo', 'foto',)
-    list_filter = ['vch_titulo']
+    list_display = ('vch_titulo', 'dat_dataenvio', 'boo_ativo',)
     search_fields = ('vch_titulo',)
     list_per_page = 10
     exclude = ('dat_dataenvio',)

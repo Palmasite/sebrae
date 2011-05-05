@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{%  block titulo %}PodCast{% endblock %}
+
+{% block direita %}{% endblock %}
+
+{%block conteudo%}
+<div id="conteudo_interno">
+        <h3>PodCast</h3>
+		<ul class="podcasts">
+		<div class="box_noticias">
+			
+			{% for pod in podcast %}  
+		
+			<li>
+				<div class="date">
+				      <div class="mp3songplace">
+	                        <a href="{{MEDIA_URL}}{{pod.vch_arquivo}}" class="mp3song"></a>
+                        </div>
+
+				</div>
+				<div class="conteudo">
+					<h4>
+					   <span>{{ pod.dat_publicacao|timesince }} - </span> {{pod.vch_titulo}}
+				
+					</h4>
+					  
+				</div>
+				</a>
+			</li>
+	
+			{% endfor %}
+		</div>
+	</ul>
+</div>
+{% endblock %}
+
+
+
+
+{%block includejs%}
+
+<script type="text/javascript" src="{{MEDIA_URL}}js/player/jquery.flash.js"></script>
+
+	
+{% endblock %}
+
+	
+{% block scriptjs %}
+
+	  <script type="text/javascript">
+	  
+	          $(document).ready(function(){
+	        $(".mp3song").flash(
+		        { src: "{{MEDIA_URL}}js/player/singlemp3player.swf", height: 20, width: 60, wmode: "transparent" },
+		        { version: 7 },
+		        function(htmlOptions) {
+			        $this = $(this);
+			        htmlOptions.flashvars.file = $this.attr("href");
+			        $this.before($.fn.flash.transform(htmlOptions));						
+		        }
+	        );
+        });
+
+
+     </script>
+     
+
+{% endblock %}
+		
+
+
+

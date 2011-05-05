@@ -14,17 +14,10 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
         lista_galeria  = Galeria.objects.all()
     
    
-<<<<<<< HEAD
     doc = settings.MEDIA_URL +'images_portal/upload/word.png'
     excel = settings.MEDIA_URL +'images_portal/upload/excel.png'
     pdf  = settings.MEDIA_URL +'images_portal/upload/pdf.png'
     point = settings.MEDIA_URL +'images_portal/upload/powerpoint.png'
-=======
-    doc = settings.MEDIA_URL +'images_portal/word.png'
-    excel = settings.MEDIA_URL +'images_portal/excel.png'
-    pdf  = settings.MEDIA_URL +'images_portal/pdf.png'
-    point = settings.MEDIA_URL +'images_portal/powerpoint.png'
->>>>>>> 17abc77557000ce1f14b1c2b9687dd647f4e57ba
     
     
     
@@ -40,7 +33,7 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
     for a in arquivos:
         if a.vch_arquivo:
 <<<<<<< HEAD
-            raise Exception(a.vch_arquivo)
+            #raise Exception(a.vch_arquivo)
             extensao = str(a.vch_arquivo).split('.')[-1]
             
             if extensao == 'doc' or extensao == 'docx':

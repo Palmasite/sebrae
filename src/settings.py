@@ -113,7 +113,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.publicidade",
     "processors.enquete",
     "processors.menu",
+    
+    # django 1.2 somente 
+    'django.contrib.messages.context_processors.messages' , 
+    # exigido pelo django-admin-tools 
+    'django.core.context_processors.request' , 
 )
+
+ADMIN_TOOLS_THEMING_CSS = 'css/theming.css'
+
 AUTH_PROFILE_MODULE = 'espiga.perfilinicial'
 
 MIDDLEWARE_CLASSES = (
@@ -143,6 +151,13 @@ EMAIL_PORT = 587
 
 
 INSTALLED_APPS = (
+    # exigido pelo django-admin-tools
+    'admin_tools' , 
+    'admin_tools.theming' , 
+    'admin_tools.menu' , 
+    'admin_tools.dashboard' ,  
+ 
+    # exigido pelo django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -151,6 +166,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.comments',
+    
+    # meus aplicativos instalados ...
     'noticia',
     'bancoimagem',
     'configuracoes',
@@ -163,6 +180,8 @@ INSTALLED_APPS = (
     'contato',
     'agenda',
     'paginasstaticas',
+    'podcast',
+    'dirigente',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

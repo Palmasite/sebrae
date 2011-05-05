@@ -1,7 +1,40 @@
-{% if publicidade_direita %}
-	{% for banner in publicidade_direita%}
-		<div class="banner_coluna"> 
-			<a href=""><img src="{{MEDIA_URL}}{{banner.img_foto}}" /></a>
-		</div>
-	{%endfor%}
-{%endif%}
+{% if publicidade1 %}
+    {% if publicidade1.img_foto != "" %}
+	    <a href="{{publicidade1.vch_link}}" target="_blank">
+		    <img style="width:150px" src="{{MEDIA_URL}}{{publicidade1.img_foto}}"   />
+	    </a>
+	{% else %}{% if publicidade1.vch_arquivo != "" %}
+	        
+            <object type="application/x-shockwave-flash" data="/swf/topo20100819.swf" width="945" height="232" wmode="transparent">
+
+                    <param name="loop" value="true">
+                    <param name="menu" value="false">
+                    <param name="wmode" value="transparent">
+            </object>
+	    {% endif %}{% endif %}
+	
+{% endif %}
+
+
+
+{%if publicidade2%}
+    {% if publicidade2.img_foto != "" %}
+        <a href="{{publicidade2.vch_link}}" target="_blank">
+		    <img style="width:150px" src="{{MEDIA_URL}}{{publicidade2.img_foto}}"   />
+	    </a> 
+	{% else %} {% if publicidade2.vch_arquivo != "" %}
+	        
+            <object type="application/x-shockwave-flash" data="{{MEDIA_URL}}/{{publicidade2.vch_arquivo}}" width="945" height="232" wmode="transparent">
+
+                    <param name="loop" value="true">
+                    <param name="menu" value="false">
+                    <param name="wmode" value="transparent">
+            </object>
+	    	    {% endif %}
+	{% endif %}
+	
+{% endif %}
+
+
+
+
