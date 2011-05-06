@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     (r'^video/', include('video.urls')),
     (r'^contato/', include('contato.urls')),
     (r'^link/', include('link.urls')),
-    (r'^perfil/', include('perfilinicial.urls')),
+    (r'^perfil/', include('social.urls')),
     (r'^', include('paginasstaticas.urls')),
     (r'^arquivos/', include('upload.urls')),
     (r'^podcasts/', include('podcast.urls')),
@@ -39,5 +39,6 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     
     url(r'^admin_tools/', include('admin_tools.urls')),
+
 
 )

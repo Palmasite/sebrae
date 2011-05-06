@@ -21,14 +21,12 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
 
     arquivos = Arquivo.objects.all()
 
-
     lista_arquivo_mes = arquivos.dates('dat_publicacao','month').reverse()
 
     lista_arquivo = ()
      
     for a in arquivos:
         if a.vch_arquivo:
-
             extensao = str(a.vch_arquivo).split('.')[-1]
             
             if extensao == 'doc' or extensao == 'docx':
@@ -39,7 +37,6 @@ def arquivos(request,idgaleria = None,nome_galeria = None):
             if extensao == 'xls' or extensao == 'xlsx':
                 lista_arquivo = lista_arquivo + ((a.int_idarquivo,a.vch_titulo,a.txt_resumo,a.vch_arquivo,excel,a.galeria.idgaleria,),)
 
-       
 
     return render_to_response('arquivos.html', locals(), context_instance=RequestContext(request))
 

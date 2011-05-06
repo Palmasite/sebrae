@@ -1,0 +1,19 @@
+<div class="menu_rodape">
+    {%for m in menu_rodape%}
+         {%for item in m.itens%}           
+            <dl id="menu_rodape">    
+                
+                      
+                       <dt><a href="{{item.url}}">{{item.nome}}</a></dt>
+                   
+                       {%for sitem in item.subitems%}
+                            <dd>
+                                <a href="{{sitem.url}}">{{sitem.nome}}</a>
+                            </dd>
+                        {%endfor%}
+            </dl>
+        {%endfor%}
+    {%endfor%}
+</div>
+
+

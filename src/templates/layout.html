@@ -18,7 +18,9 @@
 				<div id="logo">
 					<img src="{{MEDIA_URL}}images_portal/logo.png">
 					</img>
+					{% include "graos_index/busca.html" %}
 				</div>
+				
 
 			</div>
 		</div>
@@ -27,10 +29,17 @@
 			{% include "graos_index/full_banner.html" %}
 		
 		<div id="content">
+		<div id="bradcumbs">
+		    {% block bradcumb %}
+
+		    {% endblock %}
+		</div>
+		
 			{% block colunaEsquerda %}
 				<div id="coluna-esquerda">
 					{% include "graos_index/area_restrita.html" %}
                 	{% include "graos_index/menu_vertical.html" %}
+
 				</div>
 			{% endblock %}
 			
@@ -41,13 +50,14 @@
 	            {% include "graos_index/noticias_lista.html" %}
 	            {% include "graos_index/eventos_full.html" %}
 	            {% include "graos_index/fotos_full.html" %}
-	            {% include "graos_index/servicos_full.html" %}
+	            {% include "graos_index/links_destaque.html" %}
 				
 			</div>
 			{% endblock %}
 			
 			{% block direita %}
 			<div id="coluna-direita">
+               	{% include "graos_index/enquete.html" %}
 				{% include "graos_index/links_rapidos.html" %}
 		        {% include "graos_index/banner_direita.html" %}
 		        {% include "graos_index/links_direita.html" %}
@@ -59,13 +69,13 @@
 		</div>
 		<div id="rodape">
 			<div id="image_rodape">
-				<img src="{{MEDIA_URL}}images_portal/logo.jpg" />
+				{% include "graos_index/menu_rodape.html" %}
 			</div>
 			<div id="rodape_palmasite">
-				{% block rodape %}
-				Powered by PALMASITE INTERNET GROUP - Site Desenvolvido ESPIGA CMS!
-				<img id="by_palmasite" src="" />
-				{% endblock %}
+				<div id="info">
+				Serviço de Apoio às Micro e Pequenas Empresas do Estado Tocantins - Sebrae/TO     
+				CNPJ : 25.089.962/0001-90
+				</div>
 			</div>
 		</div>
 	</body>
@@ -74,10 +84,7 @@
 	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery_ui/jquery-ui-1.8.11.custom.min.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/paginas_internas/index.js"></script>
 
-	{%block includejs%}
+	{%block includejs%}{%endblock%}
 	
-	{%endblock%}
-	
-	
-	{% block scriptjs%}{% endblock %}	
+	{% block scriptjs%}{% endblock %}
 

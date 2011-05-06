@@ -5,20 +5,18 @@
 	<div id="conteudo_interno">
 		<div id='noticia_formbusca'>
 			
-			<h3> Buscar notícia </h3>
+			<h3>Categoria</h3>
 			<form name="noticia_buscar" method="GET" action="/noticia/buscarnoticia/">
-				
-				<input type="text" id='busca' name='buscar' />
-				<input type="submit" value="Buscar"></>
-				
+				<input type="text" id='busca' onclick="if(this.value=='buscar'){this.value=''}" name='buscar' />
+				<input type="submit" value="Buscar">
 			</form>
-			
+
 	</div>
 	<ul class="outras_noticias">
 		{% for mes in lista_noticias_mes %}
 	
 		<div class="box_noticias">
-			<h3>{{mes.month|mes}}/{{mes.year}}</h3>
+			<h4>{{mes.month|mes}}/{{mes.year}}</h4>
 			{% for mais_noticia in lista_mais_noticias %}
 			{%ifequal mais_noticia.dat_noticia.year mes.year%}
 			{%ifequal mais_noticia.dat_noticia.month mes.month%}
@@ -28,10 +26,9 @@
 					{{mais_noticia.dat_noticia|date:"d \d\e F \d\e Y"}}
 				</div>
 				<div class="conteudo">
-					<h4>
+
 					{{ mais_noticia.vch_titulo|striptags|slice:'85'}}
 				
-					</h4>
 				</div>
 				</a>
 			</li>

@@ -12,6 +12,7 @@
 			buttonImage: "/media/css/images_portal/",
 			buttonImageOnly: true
 		});
+		
 	});
 
 
@@ -82,7 +83,10 @@ $('#noticia_destaque_'+noticia_destaque_id).fadeIn();
 
 if(noticia_destaque > 1){
     var interval_noticia = setInterval("noticia_destaque_proximo()",10000);
+}else{
+    $("#ctr_prev").hide();
 }
+
 function noticia_destaque_proximo(){
 	$('#noticia_destaque_'+noticia_destaque_id).fadeOut();
 	
@@ -96,14 +100,13 @@ function noticia_destaque_proximo(){
 
 function noticia_destaque_anterior(){
 	$('#noticia_destaque_'+noticia_destaque_id).fadeOut();
+	
 	if (noticia_destaque_id < noticia_destaque){
 		noticia_destaque_id = noticia_destaque;
 	}else{
 		noticia_destaque_id = noticia_destaque_id-1;
 	}
 	$('#noticia_destaque_'+noticia_destaque_id).fadeIn();
-
 }
-
 
 

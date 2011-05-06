@@ -13,6 +13,11 @@ def mais_noticias(request):
     lista_mais_noticias = Noticia.objects.all().order_by('-dat_noticia')[:50]
     lista_noticias_mes = lista_mais_noticias.dates('dat_noticia', 'month').reverse()  
     return render_to_response('mais_noticias.html', locals(), context_instance=RequestContext(request))
+    
+def noticia_categoria(request,categoria_id):
+    lista_mais_noticias = Noticia.objects.filter(categoria = categoria_id).order_by('-dat_noticia')[:50]
+    lista_noticias_mes = lista_mais_noticias.dates('dat_noticia', 'month').reverse()  
+    return render_to_response('mais_noticias.html', locals(), context_instance=RequestContext(request))
 
 def detalhar_noticia(request, noticia_id):
     noticia_detalhada = Noticia.objects.filter(int_idnoticia=noticia_id).order_by('dat_noticia')[:10]

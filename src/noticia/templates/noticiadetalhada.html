@@ -10,11 +10,15 @@
 		<h3>Notícias Detalhada</h3>
 		
 		{%for noticia in noticia_detalhada%}
-			<div id='noticia_date'>{{noticia.dat_noticia|date:"j \de F \de Y" }}</div> 
+
+		    {%if noticia.img_foto%}
+		        <img id="image_noticia" src="{{MEDIA_URL}}{{noticia.img_foto}}" />
+			{%endif%}
 			<div id='noticia_titulo'>{{noticia.vch_titulo}}</div>
+			<div id='noticia_date'>{{noticia.dat_noticia|date:"j \de F \de Y" }}</div> 
 			<p>{{noticia.txt_olho|striptags|slice:'220'}}</p>
 			<div id='noticia_conteudo'>{{noticia.txt_noticia|safe}}</div>
-			<div id='noticia_autor'>{{noticia.vch_autor|safe}}</div>
+			<div id='noticia_autor'>autor : {{noticia.vch_autor|safe}}</div>
 			
 		{%endfor%}
 	

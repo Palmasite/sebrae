@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+{% block direita %}{% endblock %}
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Editar perfil</h3>
+	{{perfil}}
+	<div id="formperfil"></>
+		<form method="POST">
+			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
+			 <input type="submit" value="Savar alterações" ></input>
+		</form>
+	</div>
+	{% if profissional_list  %}
+   
+    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <th>Tipo</th>
+            <th>Formação</th>
+            <th>Instituição</th>
+            <th>Local</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            {%for profissional in profissional_list%}
+            <tr class="{%cycle 'linha1' 'linha2' %}" >
+                {%if profissional.tipo = "1" %}
+                    <td> Fone/Ramal</td>
+                {%if profissional.tipo = "2" %}
+                    <td>Cel. trabalho</td>
+                {%if profissional.tipo = "3" %}
+                    <td>Cel. pessoal</td>
+                {%if profissional.tipo = "4" %}
+                    <td>Email trabalho</td>
+                {%if profissional.tipo = "5" %}
+                    <td>Email pessoal</td>
+                {%endif%}
+                <td>{{profissional.formacao}}</td>
+                <td>{{profissional.instituicao}}</td>
+                <td>{{profissional.local}}</td>
+                <td>Deletar</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+    
+{%endif%}
+	
+</div>
+	{%endblock%}
+
+
+	{%block includejs%}
+
+	{% endblock %}
+
+	{% block scriptjs%}
+
+	{% endblock %}
+
+

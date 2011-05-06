@@ -15,13 +15,34 @@ class Publicidade(models.Model):
     list_tipo = (('1', 'Topo'), ('2', 'Direita'), ('3', u'Rodapé'), ('4', 'Esquerda'), ('5', 'fullbanner'))
     idpublicidade = models.AutoField(primary_key=True)
     nome = models.CharField("Nome", max_length=250)
+<<<<<<< HEAD
     #img_foto = ImageWithThumbsField(verbose_name="Logomarca", upload_to="fotopublicidade", sizes=((1000, 147),), null=True, blank=True,)
     img_foto = ImageWithThumbsField(verbose_name="Logomarca", upload_to=upload_to_foto, null=True, blank=True,)
     vch_arquivo = models.FileField("Flash", upload_to=upload_to_foto,null=True, blank=True,)
     tipo = models.CharField(u"Posição no portal", max_length=1, choices=list_tipo)
     dat_publicacao = models.DateField(u"Data Publicação",)
 
+=======
+    img_foto = ImageWithThumbsField(verbose_name="Logomarca", upload_to="fotopublicidade", sizes=((1000, 147),), null=True, blank=True,)
+    tipo = models.CharField("Posição no portal", max_length=1, choices=list_tipo,)
     
+    def save(self, force_insert=False, force_update=False):
+            super(Publicidade, self).save(force_insert, force_update)
+            foto = str(self.img_foto)
+            if foto != '':        
+                f = str(foto).split('.') 
+                """ Renomeia img_foto"""
+                if not "1000x147" in f:    
+                    self.img_foto = f[0] + '.1000x147.' + f[1]
+                os.remove(settings.MEDIA_ROOT + '/' + foto)
+                            
+                super(Publicidade, self).save(force_insert, force_update)
+                """ Apaga a foto original da pasta """
+                
+            else:
+                super(Publicidade, self).save(force_insert, force_update)
+            
+>>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
     def __unicode__(self):
         return unicode(self.nome)
     

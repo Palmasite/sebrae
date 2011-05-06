@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+{% block direita %}{% endblock %}
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Contato</h3>
+	{{perfil}}
+	    <div id="formperfil"></>
+		    <form method="POST">
+			     {% if formperfil %}{{formperfil.as_table}}{% endif %}
+			     <input type="submit" value="Savar alterações" ></input>
+		    </form>
+	    </div>
+	{% if contato_list  %}
+   
+    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <th>Tipo</th>
+            <th>Contato</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            {%for contato in contato_list%}
+                <tr class="{%cycle 'linha1' 'linha2' %}" >
+                    {%if contato.tipo = "1" %}
+                        <td>Fone/Ramal</td>
+                    {%if contato.tipo = "2" %}
+                        <td>Cel. trabalho</td>
+                    {%if contato.tipo = "3" %}
+                        <td>Cel. pessoal</td>
+                    {%if contato.tipo = "4" %}
+                        <td>Email trabalho</td>
+                    {%if contato.tipo = "5" %}
+                        <td>Email pessoal</td>
+                    {%endif%}
+                    <td>{{contato.contato}}</td>
+                    <td>Deletar</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+    
+{%endif%}
+	
+</div>
+	{%endblock%}
+
+
+	{%block includejs%}
+
+	{% endblock %}
+
+	{% block scriptjs%}
+
+	{% endblock %}
+
+

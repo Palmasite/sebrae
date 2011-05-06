@@ -2,7 +2,7 @@
 
 from video.models import Video
 from link.models import Link
-from perfilinicial.models import Perfil
+from social.models import Perfil
 from publicidade.models import Publicidade
 from enquete.models import Enquete, Escolha
 from configuracoes.models import Menu
@@ -59,9 +59,9 @@ def publicidade(request):
     return locals()
 
 def enquete(request):
-    #enquete
-    #ultima_enquete = Enquete.objects.latest("id_enquete") 
-    #enquete_esolhas = Escolha.objects.filter(enquete=ultima_enquete)
+    enquete
+    ultima_enquete = Enquete.objects.filter(boo_ativo = True ) [:1]
+    enquete_esolhas = Escolha.objects.filter(enquete=ultima_enquete)
     
     return locals()
 

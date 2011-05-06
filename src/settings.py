@@ -172,7 +172,7 @@ INSTALLED_APPS = (
     'bancoimagem',
     'configuracoes',
     'enquete',
-    'perfilinicial',
+    'social',
     'video',
     'upload',
     'publicidade',

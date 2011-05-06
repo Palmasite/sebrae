@@ -3,9 +3,14 @@ from contato.views import contato
 
 
 urlpatterns = patterns('',
+<<<<<<< HEAD
 
     (r'^faleconosco/$', 'contato.views.contato'),
     (r'^contato/$', 'contato.views.contato'),
 
+)
+=======
+                       (r'^contato/$', 'contato.views.contato'),
                        )
+>>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
 

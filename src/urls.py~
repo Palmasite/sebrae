@@ -4,7 +4,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns += patterns('',
+urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'espiga.views.home', name='home'),
     # url(r'^espiga/', include('espiga.foo.urls')),
@@ -27,9 +27,10 @@ urlpatterns += patterns('',
     (r'^video/', include('video.urls')),
     (r'^contato/', include('contato.urls')),
     (r'^link/', include('link.urls')),
-    (r'^perfil/', include('perfilinicial.urls')),
+    (r'^perfil/', include('social.urls')),
     (r'^', include('paginasstaticas.urls')),
     (r'^arquivos/', include('upload.urls')),
+<<<<<<< HEAD
     (r'^podcasts/', include('podcast.urls')),
     (r'^dirigentes/', include('dirigente.urls')),
 
@@ -39,5 +40,8 @@ urlpatterns += patterns('',
 urlpatterns += patterns('',
     
     url(r'^admin_tools/', include('admin_tools.urls')),
+=======
+    (r'^flip/', include('flip.urls')),
+>>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
 
 )

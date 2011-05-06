@@ -4,6 +4,7 @@ from django.db import models
 class Agenda(models.Model):
     id_agenda = models.AutoField(primary_key=True)
     nome = models.CharField('nome', max_length=200)
+    cor = models.CharField("Cor da Agenda",max_length=7)
     descricao = models.CharField(u'Descrição', max_length=200)
     def __unicode__(self):
         return unicode(self.nome)

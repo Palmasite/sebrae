@@ -32,8 +32,7 @@ def index(request):
     #if request.user.is_authenticated():
      #    auth = request.user
          
-    #lista de noticias       
-    outras_noticias = Noticia.objects.filter(boo_ativo=True)[:4]
+   
     
     #lista galeria
     lista_galeria = Galeria.objects.all()[:3]
@@ -42,6 +41,9 @@ def index(request):
     
     #noticias_destque
     noticias_destaque = Noticia.objects.filter(boo_ativo=True).filter(boo_destaque=True);
+    
+    #lista de noticias       
+    outras_noticias = Noticia.objects.filter(boo_ativo=True).filter(boo_destaque=False)
    
     #eventos
     ultimos_eventos = Eventos.objects.filter(inicio__gt=datetime.date.today())

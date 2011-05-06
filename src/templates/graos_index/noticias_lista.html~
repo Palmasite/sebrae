@@ -2,11 +2,11 @@
 	
 	<ul class="noticias_lista">
 		{% for noticia in outras_noticias %}
-		<li><a href="/noticia/detalhar/{{ noticia.int_idnoticia }}/"><span>{{ noticia.dat_noticia|timesince }} - </span>{{ noticia.txt_olho|striptags|slice:"70" }}...</a></li>
+		<li><a href="/noticia/detalhar/{{ noticia.int_idnoticia }}/"><span>{{ noticia.vch_titulo|striptags|slice:"70" }} - </span>Postado a :{{ noticia.dat_noticia|timesince }}</a></li>
 		{% endfor %}
 		
 	</ul>
 	
-	<a href="/noticia/mais/" class="ver_mais">ver mais +</a>
+	<a href="/noticia/mais/" class="ver_mais">ver mais</a>
 	
 </div>

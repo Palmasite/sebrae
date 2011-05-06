@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 
+  {% block bradcumb %}
+		        <a href="/bancoimagem/galeria/">Voltar</a>
+  {% endblock %}
+
 {%  block titulo %}Galeria imagens{% endblock %}
 
 {% block direita %}{% endblock %}
 {% block colunaEsquerda %}{% endblock %}
-
 {% block includecss %}
 	<link rel="stylesheet" href="{{MEDIA_URL}}css/galeria_galleriffic_css/basic.css" type="text/css" />
 	<link rel="stylesheet" href="{{MEDIA_URL}}css/galeria_galleriffic_css/galleriffic-5.css" type="text/css" />
@@ -119,12 +122,12 @@
 			loadingContainerSel:       '#loading',
 			renderSSControls:          true,
 			renderNavControls:         true,
-			playLinkText:              'Play Slideshow',
-			pauseLinkText:             'Pause Slideshow',
-			prevLinkText:              '&lsaquo; Previous Photo',
-			nextLinkText:              'Next Photo &rsaquo;',
-			nextPageLinkText:          'Next &rsaquo;',
-			prevPageLinkText:          '&lsaquo; Prev',
+			playLinkText:              'Play ',
+			pauseLinkText:             'Pause',
+			prevLinkText:              '&lsaquo; Foto Anterior',
+			nextLinkText:              'Proxima Foto &rsaquo;',
+			nextPageLinkText:          'Proximo &rsaquo;',
+			prevPageLinkText:          '&lsaquo; Anterior',
 			enableHistory:             true,
 			autoStart:                 false,
 			syncTransitions:           true,

@@ -1,0 +1,16 @@
+<content width="368" height="450" bgcolor="cccccc" loadercolor="ffffff" panelcolor="5d5d61" buttoncolor="5d5d61" textcolor="ffffff">
+	<page src="pages/01.jpg"/>
+	<page src="pages/02.swf"/>
+	<page src="pages/03.swf"/>
+	<page src="pages/04.jpg"/>
+	<page src="pages/05.jpg"/>
+	<page src="pages/06.jpg"/>
+	<page src="pages/07.swf"/>
+	<page src="pages/08.jpg"/>
+	<page src="pages/09.swf"/>
+	<page src="pages/10.jpg"/>
+	<page src="pages/11.swf"/>
+	<page src="pages/12.jpg"/>
+	<page src="pages/13.jpg"/>
+	<page src="pages/14.jpg"/>
+</content>

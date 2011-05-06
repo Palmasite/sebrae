@@ -1,4 +1,4 @@
-<div class="block_ligth">
+<div class="block_ligth_2">
     {%for m in menu_vertical%}
         <h2> {{m.nome}} </h2>
         <dl id="menu_vertical">    

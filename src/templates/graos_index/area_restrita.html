@@ -1,6 +1,6 @@
+<h2 class="header">Area Restrita</h2>
 <div class="block_ligth area_restrita">
-	
-	<h2>Area Restrita</h2>
+
 	<div class="dados">
 		{% if not auth %}
 		<div id ="messages_login"><span>Por favor entre com os seus dados pessoais {{menssage}}</span></div>
@@ -13,16 +13,13 @@
 		
 		<a href="lose_pass">Esqueci minha senha</a>
 		</fieldset>
-		
 		{% else %}
-			
 			{% if not user_perfil.img_foto %}
 				<div id="auth_foto">
 					<img src="{{MEDIA_URL}}/images_portal/user_none.jpg"  />
 				{{user_perfil.img_foto}}
 				</div>
 			{% endif %}
-			
 			SEJA BEM VINDO
 			 <br /><strong>{{auth.username}}</strong>
 			<a href="/logout/">Sair</a>
