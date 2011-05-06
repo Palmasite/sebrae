@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+{% block direita %}{% endblock %}
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Album</h3>
+	{{perfil}}
+	<div id="formperfil">
+		<form method="POST" enctype="multipart/form-data">
+			 {% if formalbum %}{{formalbum.as_table}}{% endif %}
+			 
+			 <input type="submit" value="Savar alterações" ></input>
+			
+		</form>
+	</div>
+	
+	
+	{% if list_fotos  %}
+    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <th>Tipo</th>
+            <th>Formação</th>
+            <th>Instituição</th>
+            <th>Local</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            {%for foto in list_fotos%}
+            <tr class="{%cycle 'linha1' 'linha2' %}" >
+                <td>{{MEDIA_URL}}{{foto.img_foto}}</td>
+                <td>{{foto.titulo}}</td>
+                <td>Deletar</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+    
+{%endif%}-->
+	
+</div>
+	{%endblock%}
+
+
+	{%block includejs%}
+
+	{% endblock %}
+
+	{% block scriptjs%}
+
+	{% endblock %}
+
+

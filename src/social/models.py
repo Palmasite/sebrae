@@ -6,6 +6,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 import os
 
+from datetime import datetime
+
+
+
+
 class Perfil(models.Model):
     nome = models.CharField("Nome", max_length=250)
     cargo = models.CharField("Cargo", max_length=250)
@@ -66,3 +71,52 @@ class RedeSocial(models.Model):
     rede = models.CharField("Contato", max_length=250)
     vch_tipo = models.CharField("Tipo", max_length=2, choices=list_tipo)    
     user = models.CharField("UserName", max_length=250)
+    
+    
+    
+def upload_to_foto(instance, name):
+    extensao = os.path.splitext(name)[-1]
+    nome = os.path.splitext(name)[0]
+    data = datetime.now()
+    horario = str(nome) + "-" + str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
+    #raise Exception(os.path.join('%s/'%(pasta_galeria),'%s%s'%(horario, extensao)))
+    #return os.path.join('galeria/%s/' % (pasta_galeria), '%s%s' % (horario, extensao))
+    return os.path.join('galeria/', '%s%s'%(horario, extensao))
+
+
+
+class Album(models.Model):
+    int_idbancoimagem = models.AutoField(primary_key=True)
+    vch_titulo = models.CharField("Título Foto", max_length=250)
+    img_foto = ImageWithThumbsField(verbose_name="Foto", upload_to=upload_to_foto, sizes=((150, 85), (800, 600)))
+    img_miniatura = models.CharField(max_length=100, null=True, blank=True) 
+    perfil = models.ForeignKey('Perfil')
+    
+    def save(self):
+        super(Album, self).save()
+        
+        foto = str(self.img_foto)        
+        f = str(foto).split('.')  
+        """ Renomeia img_foto"""    
+        self.img_foto = f[0] + '.800x600.' + f[1]
+        """ Renomeia img_miniatura"""    
+        self.img_miniatura = f[0] + '.150x85.' + f[1]
+        super(Album, self).save()
+        """ Apaga a foto original da pasta """
+        os.remove(settings.MEDIA_ROOT + '/' + foto)
+    
+    """ funcao que coloca as imagens no campo img_foto na consulta """
+    def foto(self):
+        foto = str(self.img_miniatura)
+    
+        img = '<img src="/espiga/media/' + foto + '"/>'       
+        return img
+
+    foto.allow_tags = True 
+   
+    def __unicode__(self):
+        return self.vch_titulo
+    
+    class Meta:
+        verbose_name = "Banco de Imagem"
+        verbose_name_plural = "Banco de Imagem"

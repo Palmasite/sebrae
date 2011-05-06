@@ -5,8 +5,8 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.utils import simplejson
 
-from social.models import Perfil,Profissional,RedeSocial
-from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm
+from social.models import Perfil, Profissional, RedeSocial, Album
+from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm, AlbumForm
 
 from django.core.files.uploadedfile import SimpleUploadedFile
 
@@ -72,6 +72,26 @@ def social(request):
     except:
         pass
     return render_to_response('perfil.html', locals(), context_instance=RequestContext(request))
+    
+def album_foto(request):
+
+    #perfil = Perfil.objects.filter(user = 1)
+    #list_fotos = Album.objects.filter(perfil=perfil[0])
+      
+    formalbum = AlbumForm()  
+    if request.method == "POST":
+        
+        formalbum = AlbumForm(request.POST,request.FILES)
+        formalbum.is_valid()
+        formalbum.save()
+        #formalbum.cleanned_data()
+    return render_to_response('album.html', locals(), context_instance=RequestContext(request))
+   
+    
+        
+
+
+ 
             
 
 
