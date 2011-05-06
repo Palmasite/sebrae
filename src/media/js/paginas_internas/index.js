@@ -52,6 +52,10 @@ function relatorio(){
 }
 
 
+/*
+    deletar
+*/
+
 /**
  * @full banner
  */

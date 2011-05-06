@@ -77,6 +77,7 @@ def logar(request):
     if user_login is not None:
         if user_login.is_active:
             retorno = {'status':'ok', 'message':'<span>Seja bem vindo : <strong>' + user_login.username + '</strong></span>'}
+            request.session['username'] = user
             login(request, user_login)
         else:
             retorno = {'status':'no', 'message':'<span style="color:#A20000">usario não ativo<span>'}

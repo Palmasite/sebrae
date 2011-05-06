@@ -16,7 +16,7 @@ class Perfil(models.Model):
     
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)
-        foto = str(self.img_foto)
+        foto = str(self.foto)
         if foto != '':        
             f = str(foto).split('.') 
             """ Renomeia img_foto"""
