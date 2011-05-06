@@ -3,18 +3,27 @@
 {%  block titulo %}Galeria imagens{% endblock %}
 
 {% block direita %}{% endblock %}
+{% block esquerda %}{% endblock %}
 
 {%block conteudo%}
+<div id="conteudo_geral">
+	<h2>Editar perfil</h2>
 
-<div id="conteudo_interno">
-	<h3>Contato</h3>
-	{{perfil}}
-	    <div id="formperfil"></>
-		    <form method="POST">
-			     {% if formperfil %}{{formperfil.as_table}}{% endif %}
-			     <input type="submit" value="Savar alterações" ></input>
-		    </form>
-	    </div>
+    <div class="aux_form">
+        <a href="/perfil/perfil/" ><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/" class="select"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+    </div>
+
+	<div id="form"></>
+		<form method="POST">
+			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
+			 
+			 <input type="submit" value="Savar alterações" ></input>
+			
+		</form>
+	</div>
 	{% if contato_list  %}
    
     <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -26,19 +35,24 @@
         <tbody>
             {%for contato in contato_list%}
                 <tr class="{%cycle 'linha1' 'linha2' %}" >
-                    {%if profissional.tipo = "1" %}
+                    {%if contato.tipo = "1" %}
                         <td>Fone/Ramal</td>
-                    {%if profissional.tipo = "2" %}
+                    {%endif%}
+                    {%if contato.tipo = "2" %}
                         <td>Cel. trabalho</td>
-                    {%if profissional.tipo = "3" %}
+                    {%endif%}
+                    {%if contato.tipo = "3" %}
                         <td>Cel. pessoal</td>
-                    {%if profissional.tipo = "4" %}
+                    {%endif%}
+                    {%if contato.tipo = "4" %}
                         <td>Email trabalho</td>
-                    {%if profissional.tipo = "5" %}
+                    {%endif%}
+                    {%if contato.tipo = "5" %}
                         <td>Email pessoal</td>
                     {%endif%}
-                    <td></td>
-                    <td>Deletar</td>
+                    
+                    <td>{{contato.contato}}</td>
+                    <td><a href='/perfil/del/contato/{{contato.idcontato}}'>Deletar</td>
                 </tr>
             {%endfor%}
         </tbody>

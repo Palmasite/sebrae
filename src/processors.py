@@ -7,17 +7,16 @@ from publicidade.models import Publicidade
 from enquete.models import Enquete, Escolha
 from configuracoes.models import Menu
 from django.db import connection
+from django.http import HttpResponseRedirect 
 
 import random 
 
 def auth(request):
-    #auth = False
-    #if request.user.is_authenticated():
-    #     auth = request.user
+    if request.session['username']:
     #     user_perfil = Perfil.objects.get(user=auth)
+        return HttpResponseRedirect('/admin')
+    return HttpResponseRedirect('/admin')
     
-    return locals()
-
 def ultimo_video(request):
     #ultimo video
     ultimo_video = Video.objects.all()[:1]

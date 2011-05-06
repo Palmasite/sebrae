@@ -17,9 +17,12 @@ class Perfil(models.Model):
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)
         foto = str(self.foto)
+<<<<<<< HEAD
         
         raise Exception(foto)
         
+=======
+>>>>>>> master
         if foto != '':        
             f = str(foto).split('.') 
             """ Renomeia img_foto"""

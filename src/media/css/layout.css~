@@ -68,7 +68,11 @@ span.ui-icon{float:left}
 #conteudo_interno form input,#conteudo_geral form input[type = "text"]{width: 345px;}
 #conteudo_interno form select ,#conteudo_geral form select{width: 345px;}
 #conteudo_interno form ul.errorlist,#conteudo_geral form ul.errorlist{color: #C30}
+<<<<<<< HEAD
 #conteudo_interno form form, #conteudo_geral form{margin-top: 20px}
+=======
+#conteudo_interno form form, #conteudo_geral form form{margin-top: 20px}
+>>>>>>> master
 
  
 #logo{width:1000px;margin:15px auto;text-align:left;padding:15px}
@@ -344,6 +348,7 @@ ul.eventos_lista li span{font-weight: bold}
 
 
 
+<<<<<<< HEAD
 /* podcasts*/
 .podcasts{float:left;display:inline;width: 95%}
 .podcasts h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
@@ -378,4 +383,6 @@ ul.eventos_lista li span{font-weight: bold}
 
 
 
+=======
+>>>>>>> master
 
