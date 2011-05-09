@@ -41,13 +41,13 @@
             {%for contato in redes_list %}
             <div id = "contatos">
                 {% if contato.vch_tipo == "1" %}
-                    <strong>Orkut</strong> : {{contato.contato}}
+                    <strong>Orkut</strong> : {{contato.rede}}
                 {% endif %}
                 {% if contato.vch_tipo == "2" %}
-                    <strong>FaceBoock :</strong> {{contato.contato}}
+                    <strong>FaceBoock :</strong> {{contato.rede}}
                 {% endif %}
                  {% if contato.vch_tipo == "3" %}
-                    <strong>Msn :</strong> {{contato.contato}}
+                    <strong>Msn :</strong> {{contato.rede}}
                 {% endif %}
                  
             </div>

@@ -5,8 +5,6 @@ from social.models import Perfil,Profissional,Contato,RedeSocial,Album
 from django.forms.widgets import *
 from django.forms.fields import CharField, DateTimeField
 
->>>>>>> d1cfe1313d0ac535ed95c073874a0597d01805c3
-
 class PerfilForm(ModelForm):
     user = forms.CharField(widget=forms.HiddenInput())
 
