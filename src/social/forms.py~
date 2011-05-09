@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.forms.models import ModelForm
-from social.models import Perfil,Profissional,Contato,RedeSocial,Album
+from social.models import Perfil,Profissional,Contato,RedeSocial,Album,Video
 from django.forms.widgets import *
 from django.forms.fields import CharField, DateTimeField
 
@@ -23,7 +23,8 @@ class RedeSocialForm(ModelForm):
         
 class AlbumForm(ModelForm):
     img_miniatura = CharField(required=False, widget = HiddenInput())
-    dat_foto = DateTimeField(required=False, widget = HiddenInput())
+    #dat_foto = DateTimeField(required=False, widget = HiddenInput())
     class Meta:
-        model = Album         
+        model = Album
+        
 

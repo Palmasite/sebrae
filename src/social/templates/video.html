@@ -4,6 +4,7 @@
 
 {% block direita %}{% endblock %}
 
+
 {% block includecss %}
 	<link rel="stylesheet" href="{{MEDIA_URL}}css/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
 {%endblock%}
@@ -14,64 +15,50 @@
 	<h3>Album</h3>
 	<div id="formperfil">
 		<form method="POST" enctype="multipart/form-data">
-			 {% if formalbum %}{{formalbum.as_table}}{% endif %}
+			 {% if formvideo %}{{formvideo.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
 			
 		</form>
-	</div>
 	
-{% if list_fotos  %}
-    
-    <div class="galeria_perfil">
-	    <header class="block_header">
-		    <h2>Fotos</h2>
-	    </header>
-	    {% for foto in list_fotos %}
-				    <div class="galeria_full_perfil">
-					    <div class="img_video_perfil">
-						    <a class = "foto" href="{{ MEDIA_URL }}{{ foto.img_foto }}">
-							    <img src="{{ MEDIA_URL }}{{ foto.img_miniatura }}" alt="{{ foto.vch_titulo }}" title="{{ imagem.vch_titulo }}" />
-						    </a>
-					    </div>
-					    
-					    <div class="deletar_foto_perfil">
-					        <a href='/perfil/del/foto_album/{{foto.pk}}'>Deletar
-					    </div>
-				    </div>
-		
 	
-	    {% endfor %}
+	
 
+    <div class="galeria_perfil">
+        <div class="galeria_video">
+				<div class="descricao_galeria_video">{{ video.1 }} </div>
+				<div class="foto_galeria_video">
+					<a class="video_frame" href="{%url video.views.galeria_video video_id=video.0%}">
+						<img src="{{ MEDIA_URL }}{{ video.2}}" alt="{{ imagem.1 }}" />			
+					</a>
+					
+				</div>
+				</div>
     </div>
-    
-    
-    
-{%endif%}
-	
+
 </div>
-	{%endblock%}
+{% endblock %}
 
 
 {%block includejs%}
-
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.easing-1.3.pack.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-
+	
+	
 {% endblock %}
 
-{% block scriptjs%}
-
-<script type="text/javascript">
+	
+{% block scriptjs %}
+	<script type="text/javascript">
 			$(document).ready(function() {
 				/*
 				*   Examples - images
 				*/
-				$(".foto").fancybox({
-					'width'				: '67%',
-					'height'			: '103%',
+				$(".video_frame").fancybox({
+					'width'				: '35%',
+					'height'			: '58%',
 					'autoScale'			: false,
 					'transitionIn'		: 'elastic',
 					'transitionOut'		: 'elastic',
@@ -85,5 +72,4 @@
 		</script>
 
 {% endblock %}
-
 

@@ -8,16 +8,13 @@ import os
 
 from datetime import datetime
 
-
-
-
 class Perfil(models.Model):
     nome = models.CharField("Nome", max_length=250)
     cargo = models.CharField("Cargo", max_length=250)
     area = models.CharField(u"Área", max_length=250)
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto", sizes=((180, 237),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto_social/perfil", sizes=((180, 237),), null=True, blank=True,)
     
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)
@@ -73,7 +70,6 @@ class RedeSocial(models.Model):
     user = models.CharField("UserName", max_length=250)
     
     
-    
 def upload_to_foto(instance, name):
     extensao = os.path.splitext(name)[-1]
     nome = os.path.splitext(name)[0]
@@ -81,8 +77,7 @@ def upload_to_foto(instance, name):
     horario = str(nome) + "-" + str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
     #raise Exception(os.path.join('%s/'%(pasta_galeria),'%s%s'%(horario, extensao)))
     #return os.path.join('galeria/%s/' % (pasta_galeria), '%s%s' % (horario, extensao))
-    return os.path.join('galeria/', '%s%s'%(horario, extensao))
-
+    return os.path.join('foto_social/galeria/', '%s%s'%(horario, extensao))
 
 
 class Album(models.Model):
@@ -120,3 +115,5 @@ class Album(models.Model):
     class Meta:
         verbose_name = "Banco de Imagem"
         verbose_name_plural = "Banco de Imagem"
+        
+     

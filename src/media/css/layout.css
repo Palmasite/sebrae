@@ -379,3 +379,22 @@ ul.eventos_lista li span{font-weight: bold}
 .dirigente_nome safe{margin-left:95px}
 .dirigente_descricao{margin-left:132px}
 
+
+/*Galeria fotos perfil*/
+
+.galeria_perfil {margin-top:20px;border:solid 1px #EAEAEA;background:#F5F5F5;text-align:left;padding:10px;float:left;width:757px}
+
+.img_video_perfil{width:150px; height: 87px; background:#fff;border:solid 1px #333;padding:2px;overflow: hidden;float:left;margin:10px} /* ---------------------------Primeira Cor do sistema*/
+.img_video_perfil img{width:145px; height: 77px;margin:5px 2px}
+.galeria_full_perfil{width:170px;float:left;}
+.galeria_full_perfil span{margin-left:15px;}
+.deletar_foto_perfil{margin-left: 12px;}
+
+
+
+.pefil_galeria{float:left;width:600px}
+.pefil_galeria span{color:#2F5F9D;padding-right:25px;font-weight: bold;margin:10px 20px 0px 0;display:block;text-align:right;font-size:12px;height: 16px;clear:both;background:url("../images_portal/mais.png") no-repeat 100%}}
+
+
+
+

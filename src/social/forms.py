@@ -25,5 +25,6 @@ class AlbumForm(ModelForm):
     img_miniatura = CharField(required=False, widget = HiddenInput())
     #dat_foto = DateTimeField(required=False, widget = HiddenInput())
     class Meta:
-        model = Album         
+        model = Album
+        
 

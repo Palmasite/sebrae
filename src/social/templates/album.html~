@@ -4,11 +4,14 @@
 
 {% block direita %}{% endblock %}
 
+{% block includecss %}
+	<link rel="stylesheet" href="{{MEDIA_URL}}css/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
+{%endblock%}
+
 {%block conteudo%}
 
 <div id="conteudo_interno">
 	<h3>Album</h3>
-	{{perfil}}
 	<div id="formperfil">
 		<form method="POST" enctype="multipart/form-data">
 			 {% if formalbum %}{{formalbum.as_table}}{% endif %}
@@ -18,41 +21,68 @@
 		</form>
 	</div>
 	
-	
-	{% if list_fotos  %}
-   
-    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
-        <thead>
-            <th>Tipo</th>
-            <th>Formação</th>
-            <th>Instituição</th>
-            <th>Local</th>
-            <th>Ações</th>
-        </thead>
-        <tbody>
-            {%for foto in list_fotos%}
-            <tr class="{%cycle 'linha1' 'linha2' %}" >
-                <td>{{MEDIA_URL}}{{foto.img_foto}}</td>
-                <td>{{foto.titulo}}</td>
-                <td>Deletar</td>
-            </tr>
-            {%endfor%}
-        </tbody>
-
-    </table>
+{% if list_fotos  %}
     
-{%endif%}-->
+    <div class="galeria_perfil">
+	    <header class="block_header">
+		    <h2>Fotos</h2>
+	    </header>
+	    {% for foto in list_fotos %}
+				    <div class="galeria_full_perfil">
+					    <div class="img_video_perfil">
+						    <a class = "foto" href="{{ MEDIA_URL }}{{ foto.img_foto }}">
+							    <img src="{{ MEDIA_URL }}{{ foto.img_miniatura }}" alt="{{ foto.vch_titulo }}" title="{{ imagem.vch_titulo }}" />
+						    </a>
+					    </div>
+					    
+					    <div class="deletar_foto_perfil">
+					        <a href='/perfil/del/foto_album/{{foto.pk}}'>Deletar
+					    </div>
+				    </div>
+		
+	
+	    {% endfor %}
+
+    </div>
+    
+    
+    
+{%endif%}
 	
 </div>
 	{%endblock%}
 
 
-	{%block includejs%}
+{%block includejs%}
 
-	{% endblock %}
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.easing-1.3.pack.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 
-	{% block scriptjs%}
+{% endblock %}
 
-	{% endblock %}
+{% block scriptjs%}
+
+<script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				*   Examples - images
+				*/
+				$(".foto").fancybox({
+				
+					'autoScale'			: false,
+					'transitionIn'		: 'elastic',
+					'transitionOut'		: 'elastic',
+					'type'				: 'iframe',
+					'overlayOpacity'	: '0.9',
+					'overlayColor'	    : '#000'
+				});
+	
+				
+			});
+		</script>
+
+{% endblock %}
 
 

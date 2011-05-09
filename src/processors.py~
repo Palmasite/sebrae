@@ -13,9 +13,10 @@ import random
 
 def auth(request):
     if request.session['username']:
-    #     user_perfil = Perfil.objects.get(user=auth)
-        return HttpResponseRedirect('/admin')
+        #user_perfil = Perfil.objects.get(user=auth)
+        #return HttpResponseRedirect('/admin')  
     return HttpResponseRedirect('/admin')
+    
 def ultimo_video(request):
     #ultimo video
     ultimo_video = Video.objects.all()[:1]

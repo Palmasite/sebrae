@@ -6,13 +6,9 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.utils import simplejson
 
-<<<<<<< HEAD
-from social.models import Perfil, Profissional, RedeSocial, Album
+
+from social.models import Perfil, Profissional, RedeSocial,Contato, Album
 from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm, AlbumForm
-=======
-from social.models import Perfil,Profissional,RedeSocial,Contato
-from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm
->>>>>>> 5a4b67004a1a082458e3cd00b4895f1a53d67678
 
 from django.core.files.uploadedfile import SimpleUploadedFile
 
@@ -20,7 +16,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 def perfil(request):
 
     try:
-        perfil = Perfil.objects.filter(user = "perfil")
+        
+        perfil = Perfil.objects.filter(pk = 2)
+        list_fotos = Album.objects.filter(perfil=perfil[0])
         if request.method == 'POST':
             Perfil.objects.filter(pk = perfil).update(nome = request.POST["nome"],cargo = request.POST["cargo"],area = request.POST["area"],matricula =request.POST["matricula"])
             return HttpResponseRedirect('/perfil/contato/')
@@ -76,33 +74,25 @@ def social(request):
             formperfil.cleanned_data()
     except:
         pass
-<<<<<<< HEAD
-    return render_to_response('perfil.html', locals(), context_instance=RequestContext(request))
+
+    return render_to_response('redes.html', locals(), context_instance=RequestContext(request))
     
 def album_foto(request):
 
-    #perfil = Perfil.objects.filter(user = 1)
-    #list_fotos = Album.objects.filter(perfil=perfil[0])
+    perfil = Perfil.objects.filter(pk = 1)
+    list_fotos = Album.objects.filter(perfil=perfil[0])
       
-    formalbum = AlbumForm()  
+    formalbum = AlbumForm()
+ 
     if request.method == "POST":
         
         formalbum = AlbumForm(request.POST,request.FILES)
         formalbum.is_valid()
         formalbum.save()
-        #formalbum.cleanned_data()
+        formalbum
     return render_to_response('album.html', locals(), context_instance=RequestContext(request))
    
-    
-        
-
-
- 
-            
-
-=======
-    return render_to_response('redes.html', locals(), context_instance=RequestContext(request))
->>>>>>> 5a4b67004a1a082458e3cd00b4895f1a53d67678
+   
 
 def deletar(request,tabela,tabela_id):
     if tabela == "contato":
@@ -114,6 +104,9 @@ def deletar(request,tabela,tabela_id):
     elif tabela == "profissional" :
         Profissional.objects.filter(pk = tabela_id ).delete()
         return HttpResponseRedirect('/perfil/profissional/')
+    elif tabela == "foto_album":
+        Album.objects.get(pk=tabela_id).delete()
+        return HttpResponseRedirect('/perfil/album/')
     
     
     

@@ -12,9 +12,6 @@ from django.http import HttpResponseRedirect
 import random 
 
 def auth(request):
-    if request.session['username']:
-    #     user_perfil = Perfil.objects.get(user=auth)
-        return HttpResponseRedirect('/admin')
     return HttpResponseRedirect('/admin')
     
 def ultimo_video(request):

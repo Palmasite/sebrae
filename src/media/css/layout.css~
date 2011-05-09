@@ -68,11 +68,7 @@ span.ui-icon{float:left}
 #conteudo_interno form input,#conteudo_geral form input[type = "text"]{width: 345px;}
 #conteudo_interno form select ,#conteudo_geral form select{width: 345px;}
 #conteudo_interno form ul.errorlist,#conteudo_geral form ul.errorlist{color: #C30}
-<<<<<<< HEAD
 #conteudo_interno form form, #conteudo_geral form{margin-top: 20px}
-=======
-#conteudo_interno form form, #conteudo_geral form form{margin-top: 20px}
->>>>>>> master
 
  
 #logo{width:1000px;margin:15px auto;text-align:left;padding:15px}
@@ -370,6 +366,8 @@ ul.eventos_lista li span{font-weight: bold}
 
 .podcasts .conteudo{height: 22px;}
 
+=======
+>>>>>>> master
 
 
 
@@ -382,7 +380,20 @@ ul.eventos_lista li span{font-weight: bold}
 .dirigente_descricao{margin-left:132px}
 
 
+/*Galeria fotos perfil*/
 
-=======
->>>>>>> master
+.galeria_perfil {margin-top:20px;border:solid 1px #EAEAEA;background:#F5F5F5;text-align:left;padding:10px;float:left;width:757px}
+
+.img_video_perfil{width:150px; height: 87px; background:#fff;border:solid 1px #333;padding:2px;overflow: hidden;float:left;margin:10px} /* ---------------------------Primeira Cor do sistema*/
+.img_video_perfil img{width:145px; height: 77px;margin:5px 2px}
+.galeria_full_perfil{width:170px;float:left;}
+.galeria_full_perfil span{margin-left:15px;}
+.deletar_foto_perfil{margin-left: 12px;}
+
+
+
+.pefil_galeria{float:left;width:600px}
+
+
+
 

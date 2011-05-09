@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^contato/', 'social.views.contato'),
     (r'^redes/', 'social.views.social'),
     (r'^album/', 'social.views.album_foto'),
+    (r'^videos/', 'social.views.video'),
     
 
 )

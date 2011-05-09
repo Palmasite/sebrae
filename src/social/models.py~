@@ -8,29 +8,17 @@ import os
 
 from datetime import datetime
 
-
-
-
 class Perfil(models.Model):
     nome = models.CharField("Nome", max_length=250)
     cargo = models.CharField("Cargo", max_length=250)
     area = models.CharField(u"Área", max_length=250)
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto", sizes=((180, 237),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto_social/perfil", sizes=((180, 237),), null=True, blank=True,)
     
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)
         foto = str(self.foto)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        
-        raise Exception(foto)
-        
-=======
->>>>>>> master
->>>>>>> 5a4b67004a1a082458e3cd00b4895f1a53d67678
         if foto != '':        
             f = str(foto).split('.') 
             """ Renomeia img_foto"""
@@ -82,7 +70,6 @@ class RedeSocial(models.Model):
     user = models.CharField("UserName", max_length=250)
     
     
-    
 def upload_to_foto(instance, name):
     extensao = os.path.splitext(name)[-1]
     nome = os.path.splitext(name)[0]
@@ -90,18 +77,14 @@ def upload_to_foto(instance, name):
     horario = str(nome) + "-" + str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
     #raise Exception(os.path.join('%s/'%(pasta_galeria),'%s%s'%(horario, extensao)))
     #return os.path.join('galeria/%s/' % (pasta_galeria), '%s%s' % (horario, extensao))
-    return os.path.join('galeria/', '%s%s'%(horario, extensao))
-
+    return os.path.join('foto_social/galeria/', '%s%s'%(horario, extensao))
 
 
 class Album(models.Model):
     int_idbancoimagem = models.AutoField(primary_key=True)
     vch_titulo = models.CharField("Título Foto", max_length=250)
     img_foto = ImageWithThumbsField(verbose_name="Foto", upload_to=upload_to_foto, sizes=((150, 85), (800, 600)))
-    img_miniatura = models.CharField(max_length=100, null=True, blank=True)
-    vch_fotografo = models.CharField("Fotógrafo", max_length=250, null=True, blank=True)
-
-    
+    img_miniatura = models.CharField(max_length=100, null=True, blank=True) 
     perfil = models.ForeignKey('Perfil')
     
     def save(self):
@@ -132,3 +115,49 @@ class Album(models.Model):
     class Meta:
         verbose_name = "Banco de Imagem"
         verbose_name_plural = "Banco de Imagem"
+        
+        
+        
+def upload_to_video(instance, name):
+    extensao = os.path.splitext(name)[-1]
+    data = datetime.now()
+    horario = str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
+    return os.path.join('foto_social/video', '%s%s' % (horario, extensao))
+    
+class Video(models.Model):    
+    int_idvideo = models.AutoField(primary_key=True)
+    vch_titulo = models.CharField("Nome video", max_length=500)
+    img_foto = ImageWithThumbsField(u"Foto do vídeo", upload_to='foto_social/fotovideo/', sizes=((143, 87),), null=True, blank=True,)
+    vch_arquivo = models.FileField("Flash", upload_to=upload_to_video,null=True, blank=True,)
+    
+    def save(self, force_insert=False, force_update=False):
+        super(Video, self).save(force_insert, force_update)
+          
+        foto = str(self.img_foto)
+        if foto != '':        
+            f = str(foto).split('.') 
+            """ Renomeia img_foto"""
+            if not "368x278" in f:    
+                self.img_foto = f[0] + '.143x87.' + f[1]
+                os.remove(settings.MEDIA_ROOT + '/' + foto)
+                        
+            super(Video, self).save(force_insert, force_update)
+            """ Apaga a foto original da pasta """
+            
+        else:
+            super(Video, self).save(force_insert, force_update)
+            
+    def foto(self):
+        foto = str(self.img_foto)
+    
+        img = '<img src="/espiga/media/' + foto + '"/>'       
+        return img
+
+    foto.allow_tags = True                 
+    
+    def __unicode__(self):
+        return unicode(self.vch_titulo)
+            
+    class Meta:
+        verbose_name = u'Video'
+        verbose_name_plural = u'Videos'
