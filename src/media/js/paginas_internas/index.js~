@@ -85,6 +85,7 @@ if(noticia_destaque > 1){
     var interval_noticia = setInterval("noticia_destaque_proximo()",10000);
 }else{
     $("#ctr_prev").hide();
+    $("#ctr_next").hide();
 }
 
 function noticia_destaque_proximo(){

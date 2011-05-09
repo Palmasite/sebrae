@@ -3,14 +3,21 @@
 {%  block titulo %}Galeria imagens{% endblock %}
 
 {% block direita %}{% endblock %}
-
+{% block esquerda %}{% endblock %}
 {%block conteudo%}
 
-<div id="conteudo_interno">
-	<h3>Editar perfil</h3>
-	{{perfil}}
-	<div id="formperfil"></>
-		<form method="POST" enctype="multipart/form-data">
+<div id="conteudo_geral">
+	<h2>Editar perfil</h2>
+
+	
+    <div class="aux_form">
+        <a href="/perfil/perfil/"  class="select" ><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+    </div>
+	<div id="formperfil">
+		<form method="POST">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
@@ -38,7 +45,7 @@
                 <td>{{profissional.formacao}}</td>
                 <td>{{profissional.instituicao}}</td>
                 <td>{{profissional.local}}</td>
-                <td>Deletar</td>
+
             </tr>
             {%endfor%}
         </tbody>

@@ -3,11 +3,15 @@ from django.conf.urls.defaults import *
 from social.views import perfil
 
 urlpatterns = patterns('',
+    (r'^del/(?P<tabela>\w+)/(?P<tabela_id>\d+)/$', 'social.views.deletar'),
     (r'^perfil/', 'social.views.perfil'),
     (r'^profissional/', 'social.views.proficional'),
     (r'^contato/', 'social.views.contato'),
     (r'^redes/', 'social.views.social'),
+<<<<<<< HEAD
     (r'^album/', 'social.views.album_foto'),
+=======
+>>>>>>> 5a4b67004a1a082458e3cd00b4895f1a53d67678
     
 
 )
