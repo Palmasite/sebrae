@@ -30,7 +30,6 @@ urlpatterns = patterns('',
     (r'^perfil/', include('social.urls')),
     (r'^', include('paginasstaticas.urls')),
     (r'^arquivos/', include('upload.urls')),
-<<<<<<< HEAD
     (r'^podcasts/', include('podcast.urls')),
     (r'^dirigentes/', include('dirigente.urls')),
 
@@ -40,8 +39,6 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     
     url(r'^admin_tools/', include('admin_tools.urls')),
-=======
-    (r'^flip/', include('flip.urls')),
->>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
+
 
 )

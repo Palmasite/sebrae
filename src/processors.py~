@@ -13,11 +13,14 @@ from django.contrib.sessions.models import Session
 import random 
 
 def auth(request):
+<<<<<<< HEAD
     #if request.session['username']:
     #     user_perfil = Perfil.objects.get(user=auth)
     #    return HttpResponseRedirect('/admin')
 
-    raise Exception(Session.objects.filter(pk='logado'))
+    #raise Exception(Session.objects.filter(pk='logado'))
+=======
+>>>>>>> d1cfe1313d0ac535ed95c073874a0597d01805c3
     return HttpResponseRedirect('/admin')
 
 def ultimo_video(request):

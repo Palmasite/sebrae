@@ -17,13 +17,39 @@
         <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 	<div id="formperfil">
+<<<<<<< HEAD
 		<form method="POST"  enctype="multipart/form-data">
+=======
+		<form method="POST">
+>>>>>>> d1cfe1313d0ac535ed95c073874a0597d01805c3
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
 			
 		</form>
 	</div>
+	
+	<div class="pefil_galeria">
+	    {% if list_fotos %}
+
+        {% for foto in list_fotos %}
+				    <div class="galeria_full_perfil">
+					    <div class="img_video_perfil">
+						    <a class = "foto" href="{{ MEDIA_URL }}{{ foto.img_foto }}">
+							    <img src="{{ MEDIA_URL }}{{ foto.img_miniatura }}" alt="{{ foto.vch_titulo }}" title="{{ imagem.vch_titulo }}" />
+						    </a>
+					    </div>
+
+				    </div>
+
+	    {% endfor %}
+	    <a href="/perfil/album/" class="ver_mais">Adicionar mais</a>
+	    {% else %}
+	    <span> Não possui fotos no album. Para adicionar click <a href="#">aqui</a>  </span>
+	    {% endif %}
+	    
+	</div>
+	
 	{% if perfil_list  %}
    
     <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">

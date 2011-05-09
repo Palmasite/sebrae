@@ -8,7 +8,6 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'espiga.views.home', name='home'),
     # url(r'^espiga/', include('espiga.foo.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),

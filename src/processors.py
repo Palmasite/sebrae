@@ -18,6 +18,7 @@ def auth(request):
     #    return HttpResponseRedirect('/admin')
 
     #raise Exception(Session.objects.filter(pk='logado'))
+
     return HttpResponseRedirect('/admin')
 
 def ultimo_video(request):

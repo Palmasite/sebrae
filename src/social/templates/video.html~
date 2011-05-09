@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+{% block direita %}{% endblock %}
+
+
+{% block includecss %}
+	<link rel="stylesheet" href="{{MEDIA_URL}}css/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
+{%endblock%}
+
+{%block conteudo%}
+
+<div id="conteudo_interno">
+	<h3>Album</h3>
+	<div id="formperfil">
+		<form method="POST" enctype="multipart/form-data">
+			 {% if formvideo %}{{formvideo.as_table}}{% endif %}
+			 
+			 <input type="submit" value="Savar alterações" ></input>
+			
+		</form>
+	
+	
+	
+
+    <div class="galeria_perfil">
+
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+{%block includejs%}
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.easing-1.3.pack.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	
+	
+{% endblock %}
+
+	
+{% block scriptjs %}
+	<script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				*   Examples - images
+				*/
+				$(".video_frame").fancybox({
+					'width'				: '35%',
+					'height'			: '58%',
+					'autoScale'			: false,
+					'transitionIn'		: 'elastic',
+					'transitionOut'		: 'elastic',
+					'type'				: 'iframe',
+					'overlayOpacity'	: '0.9',
+					'overlayColor'	    : '#000'
+				});
+	
+				
+			});
+		</script>
+
+{% endblock %}
+

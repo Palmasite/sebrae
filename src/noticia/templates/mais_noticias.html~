@@ -7,7 +7,7 @@
 			
 			<h3>Categoria</h3>
 			<form name="noticia_buscar" method="GET" action="/noticia/buscarnoticia/">
-				<input type="text" id='busca'  onclick="if(this.value=='buscar'){this.value=''}" name='buscar' />
+				<input type="text" id='busca' onclick="if(this.value=='buscar'){this.value=''}" name='buscar' />
 				<input type="submit" value="Buscar">
 			</form>
 
@@ -21,7 +21,7 @@
 			{%ifequal mais_noticia.dat_noticia.year mes.year%}
 			{%ifequal mais_noticia.dat_noticia.month mes.month%}
 			<li>
-				<a href="{% url noticia.views.detalhar_noticia noticia_id=mais_noticia.int_idnoticia %}">
+				<a href="">
 				<div class="date">
 					{{mais_noticia.dat_noticia|date:"d \d\e F \d\e Y"}}
 				</div>
