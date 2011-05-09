@@ -5,9 +5,10 @@ from social.views import perfil
 urlpatterns = patterns('',
     (r'^del/(?P<tabela>\w+)/(?P<tabela_id>\d+)/$', 'social.views.deletar'),
     (r'^perfil/', 'social.views.perfil'),
-    (r'^profissional/', 'social.views.proficional'),
+    (r'^profissional/', 'social.views.profissional'),
     (r'^contato/', 'social.views.contato'),
     (r'^redes/', 'social.views.social'),
+    (r'^meuperfil/(?P<user>\w+)/ver', 'social.views.meuperfil'),
     
 
 )

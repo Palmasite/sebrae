@@ -68,11 +68,7 @@ span.ui-icon{float:left}
 #conteudo_interno form input,#conteudo_geral form input[type = "text"]{width: 345px;}
 #conteudo_interno form select ,#conteudo_geral form select{width: 345px;}
 #conteudo_interno form ul.errorlist,#conteudo_geral form ul.errorlist{color: #C30}
-<<<<<<< HEAD
 #conteudo_interno form form, #conteudo_geral form{margin-top: 20px}
-=======
-#conteudo_interno form form, #conteudo_geral form form{margin-top: 20px}
->>>>>>> master
 
  
 #logo{width:1000px;margin:15px auto;text-align:left;padding:15px}
@@ -207,6 +203,11 @@ h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
  */
 .bandeiras_thin {list-style: none;}
 .bandeiras_thin li{display:inline-block}
+
+/*perfil*/
+
+#foto_meuperfil{margin:20px;padding:10px;border:solid 1px #ddd;background:#fff;float:left }
+#dados_pessoais{margin:8px 0;float:left}
 
 /*
  * enquete
@@ -370,6 +371,8 @@ ul.eventos_lista li span{font-weight: bold}
 
 .podcasts .conteudo{height: 22px;}
 
+=======
+>>>>>>> master
 
 
 
@@ -380,9 +383,4 @@ ul.eventos_lista li span{font-weight: bold}
 }
 .dirigente_nome safe{margin-left:95px}
 .dirigente_descricao{margin-left:132px}
-
-
-
-=======
->>>>>>> master
 

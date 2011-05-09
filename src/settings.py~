@@ -113,14 +113,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.publicidade",
     "processors.enquete",
     "processors.menu",
-<<<<<<< HEAD
     
     # django 1.2 somente 
     'django.contrib.messages.context_processors.messages' , 
     # exigido pelo django-admin-tools 
     'django.core.context_processors.request' , 
-=======
->>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
 )
 
 ADMIN_TOOLS_THEMING_CSS = 'css/theming.css'
@@ -133,7 +130,8 @@ MIDDLEWARE_CLASSES = (
 #    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'middleware',
+    #'sebrae.middleware.MeuMiddleware',
+    'django.contrib.sessions.backends.db',
 )
 
 ROOT_URLCONF = 'urls'
@@ -184,11 +182,8 @@ INSTALLED_APPS = (
     'contato',
     'agenda',
     'paginasstaticas',
-<<<<<<< HEAD
     'podcast',
-    'dirigentes',
-=======
->>>>>>> c9bb28624e9cf809663f5e67b0c641e2cb930e72
+    'dirigente',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

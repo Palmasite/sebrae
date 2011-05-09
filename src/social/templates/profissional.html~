@@ -24,7 +24,7 @@
 		</form>
 	</div>
 	
-	{% if profissional_list  %}
+	{% if profissional_list %}
     <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
         <thead>
             <th>Tipo</th>
@@ -44,7 +44,7 @@
                 <td>{{profissional.formacao}}</td>
                 <td>{{profissional.instituicao}}</td>
                 <td>{{profissional.local}}</td>
-                <td><a href='/perfil/del/profissional/{{profissional.local}}'>Deletar</td>
+                <td><a href='/perfil/del/profissional/{{profissional.id}}'>Deletar</td>
             </tr>
             {%endfor%}
         </tbody>

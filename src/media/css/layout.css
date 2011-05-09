@@ -204,6 +204,11 @@ h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
 .bandeiras_thin {list-style: none;}
 .bandeiras_thin li{display:inline-block}
 
+/*perfil*/
+
+#foto_meuperfil{margin:20px;padding:10px;border:solid 1px #ccc;background:#fff;float:left }
+#dados_pessoais{margin:8px 0;float:left}
+
 /*
  * enquete
  */

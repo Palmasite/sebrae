@@ -6,13 +6,6 @@
 {% block esquerda %}{% endblock %}
 {%block conteudo%}
 
-<<<<<<< HEAD
-<div id="conteudo_interno">
-	<h3>Editar perfil</h3>
-	{{perfil}}
-	<div id="formperfil"></>
-		<form method="POST" enctype="multipart/form-data">
-=======
 <div id="conteudo_geral">
 	<h2>Editar perfil</h2>
 
@@ -24,8 +17,7 @@
         <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 	<div id="formperfil">
-		<form method="POST">
->>>>>>> master
+		<form method="POST"  enctype="multipart/form-data">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>

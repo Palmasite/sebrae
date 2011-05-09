@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^profissional/', 'social.views.profissional'),
     (r'^contato/', 'social.views.contato'),
     (r'^redes/', 'social.views.social'),
+    (r'^meuperfil/(?P<user_id>\w+)/ver', 'social.views.meuperfil'),
     
 
 )

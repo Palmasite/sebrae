@@ -14,30 +14,33 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 def perfil(request):
 
-    try:
-        perfil = Perfil.objects.filter(user = "perfil")
-        if request.method == 'POST':
-            Perfil.objects.filter(pk = perfil).update(nome = request.POST["nome"],cargo = request.POST["cargo"],area = request.POST["area"],matricula =request.POST["matricula"])
-            return HttpResponseRedirect('/perfil/contato/')
+    if Perfil.objects.filter(user = request.session['username']) :
+        perfil = Perfil.objects.filter(user = request.session['username'])
         formperfil = PerfilForm(instance = perfil[0])
-    except:
-        formperfil = PerfilForm()
+
+        if request.method == 'POST':
+            Perfil.objects.filter(pk = perfil).update(nome = request.POST["nome"],cargo = request.POST["cargo"],area = request.POST["area"],matricula =request.POST["matricula"],user = request.session['username'],foto = request.FILES['foto'])
+            return HttpResponseRedirect('/perfil/profissional/')
+
+
+
+    else:
+        formperfil = PerfilForm(initial = {"user":request.session['username']})
 
         if request.method == 'POST':
             formperfil = PerfilForm(request.POST,request.FILES)
             formperfil.is_valid()
             formperfil.save()
-            
-            
+
+
+
+
     return render_to_response('perfil.html', locals(), context_instance=RequestContext(request))
-    
+
 def profissional(request):
-    
-    profissional_list = Profissional.objects.filter(user = "perfil")
-    
+    profissional_list = Profissional.objects.filter(user = request.session['username'])
     try:
-        formperfil = ProfissionalForm()
-        
+        formperfil = ProfissionalForm(initial = {"user":request.session['username']})
         if request.method == "POST":
             formperfil = ProfissionalForm(request.POST)
             formperfil.is_valid()
@@ -45,12 +48,12 @@ def profissional(request):
     except:
         pass
     return render_to_response('profissional.html', locals(), context_instance=RequestContext(request))
-    
+
 def contato(request):
-    contato_list = Contato.objects.filter(user = "perfil")
+    contato_list = Contato.objects.filter(user = request.session['username'])
     try:
-        formperfil = ContatoForm()
-        
+        formperfil = ContatoForm(initial = {"user":request.session['username']})
+
         if request.method == "POST":
             formperfil = ContatoForm(request.POST)
             formperfil.is_valid()
@@ -58,12 +61,12 @@ def contato(request):
     except:
         pass
     return render_to_response('contato.html', locals(), context_instance=RequestContext(request))
-    
+
 def social(request):
-    contato_list = RedeSocial.objects.filter(user = "perfil")
+    contato_list = RedeSocial.objects.filter(user = request.session['username'])
     try:
-        formperfil = RedeSocialForm()
-        
+        formperfil = RedeSocialForm(initial = {"user":request.session['username']})
+
         if request.method == "POST":
             formperfil = RedeSocialForm(request.POST)
             formperfil.is_valid()
@@ -83,7 +86,15 @@ def deletar(request,tabela,tabela_id):
     elif tabela == "profissional" :
         Profissional.objects.filter(pk = tabela_id ).delete()
         return HttpResponseRedirect('/perfil/profissional/')
-    
-    
-    
-    
+
+
+def meuperfil(request,user_id):
+    perfil = Perfil.objects.get(user = user_id)
+    profissional_list = Profissional.objects.filter(user = user_id)
+    contato_list = Contato.objects.filter(user = user_id)
+    redes_list = RedeSocial.objects.filter(user = user_id)
+
+    return render_to_response('meuperfil.html', locals(), context_instance=RequestContext(request))
+
+
+

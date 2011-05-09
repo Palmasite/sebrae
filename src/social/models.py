@@ -12,7 +12,7 @@ class Perfil(models.Model):
     area = models.CharField(u"Área", max_length=250)
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto", sizes=((180, 237),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto_social/perfil", sizes=((180, 237),), null=True, blank=True,)
     
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)

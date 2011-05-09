@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{%  block titulo %}Galeria imagens{% endblock %}
+
+{% block direita %}{% endblock %}
+{% block esquerda %}{% endblock %}
+{%block conteudo%}
+
+<div id="conteudo_geral">
+	<h2>Meu Perfil</h2>
+    <div id="meuperfil">
+        
+        <div id="foto_meuperfil">
+            <img src="{{MEDIA_URL}}{{perfil.foto}}" />
+        </div>
+        
+        <div id = "dados_pessoais">
+            <strong>Nome</strong> : {{perfil.nome}}</br> 
+            <strong>Cargo</strong> : {{perfil.cargo}}</br>
+            <strong>Area</strong> : {{perfil.area}}</br>
+            <strong>Matricula</strong> : {{perfil.matricula}}</br>
+            {%for contato in contato_list %}
+            <div id = "contatos">
+                {% if contato.tipo == "1" %}
+                    <strong>Fone/Ramal</strong> : {{contato.contato}}
+                {% endif %}
+                {% if contato.tipo == "2" %}
+                    <strong>Cel.Trabalho :</strong> {{contato.contato}}
+                {% endif %}
+                 {% if contato.tipo == "3" %}
+                    <strong>Cel.Pessoal :</strong> {{contato.contato}}
+                {% endif %}
+                 {% if contato.tipo == "4" %}
+                    <strong>Email trabalho :</strong> {{contato.contato}}
+                {% endif %}
+                {% if contato.tipo == "5" %}
+                    <strong>Email pessoal :</strong> {{contato.contato}}
+                {% endif %}
+            </div>
+            {%endfor%}
+            {%for contato in redes_list %}
+            <div id = "contatos">
+                {% if contato.vch_tipo == "1" %}
+                    <strong>Orkut</strong> : {{contato.contato}}
+                {% endif %}
+                {% if contato.vch_tipo == "2" %}
+                    <strong>FaceBoock :</strong> {{contato.contato}}
+                {% endif %}
+                 {% if contato.vch_tipo == "3" %}
+                    <strong>Msn :</strong> {{contato.contato}}
+                {% endif %}
+                 
+            </div>
+            {%endfor%}
+        </div>
+     
+     
+     
+   
+        
+       
+        
+    </div>
+	
+	
+</div>
+	{%endblock%}
+
+
+	{%block includejs%}
+
+	{% endblock %}
+
+	{% block scriptjs%}
+
+	{% endblock %}
+
+

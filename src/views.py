@@ -24,20 +24,19 @@ from noticia.models import Noticia
 from agenda.models import Eventos
 from enquete.models import Enquete, Escolha
 from publicidade.models import Publicidade
+from django.contrib.sessions.backends.db import SessionStore
 
+import datetime
 import random
 
 def index(request):
     #verifica se ta authenticado
     #if request.user.is_authenticated():
      #    auth = request.user
-         
-   
     
     #lista galeria
     lista_galeria = Galeria.objects.all()[:3]
     lista_imagem = BancoImagem.objects.all()
-    
     
     #noticias_destque
     noticias_destaque = Noticia.objects.filter(boo_ativo=True).filter(boo_destaque=True);
@@ -82,7 +81,6 @@ def logar(request):
         if user_login.is_active:
             retorno = {'status':'ok', 'message':'<span>Seja bem vindo : <strong>' + user_login.username + '</strong></span>'}
             request.session['username'] = user
-            login(request, user_login)
         else:
             retorno = {'status':'no', 'message':'<span style="color:#A20000">usario não ativo<span>'}
     else:

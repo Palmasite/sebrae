@@ -17,7 +17,7 @@
         <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 	<div id="formperfil">
-		<form method="POST">
+		<form method="POST" enctype="multipart/form-data">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
