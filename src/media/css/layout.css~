@@ -65,7 +65,8 @@ span.ui-icon{float:left}
  
  /*form django */
 #conteudo_interno form, #conteudo_geral form{width: 345px;float:left;padding: 10px}
-#conteudo_interno form input,#conteudo_geral form input[type = "text"]{width: 345px;}
+#conteudo_interno form, #conteudo_geral form label{font-size:16px;font-weight:bold}
+#conteudo_interno form input,#conteudo_geral form input[type = "text"]{width: 345px;border: solid 1px #ccc;background:#fff;margin-bottom:15px;color:#33;padding:1px;}
 #conteudo_interno form select ,#conteudo_geral form select{width: 345px;}
 #conteudo_interno form ul.errorlist,#conteudo_geral form ul.errorlist{color: #C30}
 #conteudo_interno form form, #conteudo_geral form{margin-top: 20px}
@@ -347,9 +348,6 @@ ul.eventos_lista li span{font-weight: bold}
 #informacaocontato iframe{width: 363px}
 #informacaocontato h3{margin-bottom: 20px}
 
-
-
-<<<<<<< HEAD
 /* podcasts*/
 .podcasts{float:left;display:inline;width: 95%}
 .podcasts h3{border-left:solid 5px #123345;padding:5px;background-color: #EEEEEE;}
@@ -371,11 +369,6 @@ ul.eventos_lista li span{font-weight: bold}
 
 .podcasts .conteudo{height: 22px;}
 
-=======
->>>>>>> master
-
-
-
 /*  Dirigentes */
 .dirigente{margin:5px;width: 749px; height: 120px;}
 .dirigente_foto{float:left; margin:5px; width: 100px;background:#fff;border:solid 1px #666;float:left;padding:4px;margin-right: -80px;box-shadow: 5px 5px 10px #666;-webkit-box-shadow: 5px 5px 10px #666;-moz-box-shadow: 5px 5px 10px #666; height: 100px;
@@ -383,7 +376,6 @@ ul.eventos_lista li span{font-weight: bold}
 }
 .dirigente_nome safe{margin-left:95px}
 .dirigente_descricao{margin-left:132px}
-
 
 /*Galeria fotos perfil*/
 
@@ -395,11 +387,5 @@ ul.eventos_lista li span{font-weight: bold}
 .galeria_full_perfil span{margin-left:15px;}
 .deletar_foto_perfil{margin-left: 12px;}
 
-
-
 .pefil_galeria{float:left;width:600px}
 .pefil_galeria span{color:#2F5F9D;padding-right:25px;font-weight: bold;margin:10px 20px 0px 0;display:block;text-align:right;font-size:12px;height: 16px;clear:both;background:url("../images_portal/mais.png") no-repeat 100%}}
-
-
-
-

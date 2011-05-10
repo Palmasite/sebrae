@@ -1,5 +1,4 @@
 # Create your views here.
-from social.models import *
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
