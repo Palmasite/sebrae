@@ -70,7 +70,6 @@ def index(request):
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 
 def logar(request):
-    
     mimetype = 'application/javascript'  
     
     user = request.POST['username']

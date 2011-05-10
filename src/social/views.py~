@@ -1,5 +1,4 @@
 # Create your views here.
-from social.models import *
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
@@ -9,6 +8,14 @@ from social.models import Perfil, Profissional, RedeSocial,Contato, Album
 from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm, AlbumForm
 from django.core.files.uploadedfile import SimpleUploadedFile
 
+def acesso(request):
+    try:
+        if request.session.get('username'):
+            return True
+    except KeyError:
+        return False
+            
+   
 def perfil(request):
 
     if Perfil.objects.filter(user = request.session['username']) :

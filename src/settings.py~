@@ -69,7 +69,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static2/'
+STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -127,11 +127,10 @@ AUTH_PROFILE_MODULE = 'espiga.perfilinicial'
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-#    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'sebrae.middleware.MeuMiddleware',
-    'django.contrib.sessions.backends.db',
+    'middleware.AutorisarAcesso',
 )
 
 ROOT_URLCONF = 'urls'
@@ -149,6 +148,17 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'warleysystem@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
+
+
+
+LOGIN_URL = '/admin/'
+
+LOGIN_EXEMPT_URLS = (
+ r'^about\.html$',
+ r'^legal/', # allow any URL under /legal/*
+)
+
+
 
 
 
