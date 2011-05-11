@@ -8,6 +8,7 @@ from social.models import Perfil, Profissional, RedeSocial,Contato, Album
 from social.forms import PerfilForm,ProfissionalForm,ContatoForm,RedeSocialForm, AlbumForm
 from django.core.files.uploadedfile import SimpleUploadedFile
 
+
 def perfil(request):
 
     if Perfil.objects.filter(user = request.session['username']) :

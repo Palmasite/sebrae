@@ -1,26 +1,43 @@
 #-*- coding: utf-8 -*-
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from social.models import Perfil
+from django.conf import settings
 
-class MeuMiddleware(object):
-    testar = False
+from re import compile
 
+
+
+EXEMPT_URLS = [compile(settings.LOGIN_URL.lstrip('/'))]
+
+if hasattr(settings, 'LOGIN_EXEMPT_URLS'):
+    EXEMPT_URLS += [compile(expr) for expr in settings.LOGIN_EXEMPT_URLS]
+
+
+class AutorisarAcesso(object):
+    '''def process_request(self, request,):
+        try:
+            if request.session.get('username'):
+                pass
+            else:
+                #pass
+                return render_to_response('index.html', context_instance=RequestContext(request))
+                
+        except KeyError:
+
+            return render_to_response('index.html', context_instance=RequestContext(request))'''
+            
     def process_request(self, request):
-        if 'testar' in request.GET:
-            self.testar = True
-            request.GET._mutable = True
-            request.GET.pop('testar')
+        assert hasattr(request, 'user'), "The Login Required middleware\
+ requires authentication middleware to be installed. Edit your\
+ MIDDLEWARE_CLASSES setting to insert\
+ 'django.contrib.auth.middlware.AuthenticationMiddleware'. If that doesn't\
+ work, ensure your TEMPLATE_CONTEXT_PROCESSORS setting includes\
+ 'django.core.context_processors.auth'."
+        if not request.user.is_authenticated():
+            path = request.path_info.lstrip('/')
+            if not any(m.match(path) for m in EXEMPT_URLS):
+                return HttpResponseRedirect(settings.LOGIN_URL)
 
-        if request.session.get('projeto_selecionado', None):
-            try:
-                request.projeto = 
-            except TypeError:
-                request.projeto = None
-        else:
-            request.projeto = None
 
-    def process_response(self, request, response):
-        if self.testar:
-            response.content = response.content.replace('</body>', '<b>EM TESTE</b></body>')
-        
-        return response
 
