@@ -9,6 +9,7 @@ from configuracoes.models import Menu
 from django.db import connection
 from django.http import HttpResponseRedirect
 from django.contrib.sessions.models import Session
+from social.models import Perfil
 
 import random 
 
@@ -83,3 +84,11 @@ def menu(request):
     menu_rodape = Menu.objects.filter(tipo = 3)
     
     return locals()
+    
+    
+def perfis(request):
+    lista_perfil = Perfil.objects.all()
+    
+    return locals()
+    
+    

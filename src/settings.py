@@ -113,6 +113,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.publicidade",
     "processors.enquete",
     "processors.menu",
+    "processors.perfis",
     
     # django 1.2 somente 
     'django.contrib.messages.context_processors.messages' , 

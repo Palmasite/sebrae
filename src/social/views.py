@@ -10,20 +10,22 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 def perfil(request):
+    request.session['username'] = 'ww'
 
     if Perfil.objects.filter(user = request.session['username']) :
         perfil = Perfil.objects.filter(user = request.session['username'])
+       
         formperfil = PerfilForm(instance = perfil[0])
-        if request.method == 'POST':
-            Perfil.objects.filter(pk = perfil).update(nome = request.POST["nome"],cargo = request.POST["cargo"],area = request.POST["area"],matricula =request.POST["matricula"],user = request.session['username'],foto = request.FILES['foto'])
-            return HttpResponseRedirect('/perfil/profissional/')
+    if request.method == 'POST':
+        Perfil.objects.filter(pk = perfil).update(nome = request.POST["nome"],cargo = request.POST["cargo"],area = request.POST["area"],matricula =request.POST["matricula"],user = request.session['username'],foto = request.FILES['foto'])
+        return HttpResponseRedirect('/perfil/profissional/')
     else:
         formperfil = PerfilForm(initial = {"user":request.session['username']})
 
-        if request.method == 'POST':
-            formperfil = PerfilForm(request.POST,request.FILES)
-            formperfil.is_valid()
-            formperfil.save()
+    if request.method == 'POST':
+        formperfil = PerfilForm(request.POST,request.FILES)
+        formperfil.is_valid()
+        formperfil.save()
 
     return render_to_response('perfil.html', locals(), context_instance=RequestContext(request))
 
@@ -98,12 +100,18 @@ def deletar(request,tabela,tabela_id):
         return HttpResponseRedirect('/perfil/album/')
 
 
-def meuperfil(request,user_id):
-    perfil = Perfil.objects.get(user = user_id)
+def meuperfil(request, user_id):
+   
+    if user_id:
+        perfil = Perfil.objects.get(user = user_id)
+    else:
+        user_id = request.GET.get('buscar')
+
     profissional_list = Profissional.objects.filter(user = user_id)
     contato_list = Contato.objects.filter(user = user_id)
     redes_list = RedeSocial.objects.filter(user = user_id)
 
     return render_to_response('meuperfil.html', locals(), context_instance=RequestContext(request))
+    
 
 

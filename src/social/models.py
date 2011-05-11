@@ -8,16 +8,29 @@ import os
 
 from datetime import datetime
 
+
+
+
+def upload_to_foto_perfil(instance, name):
+    extensao = os.path.splitext(name)[-1]
+    nome = os.path.splitext(name)[0]
+    data = datetime.now()
+    horario = str(nome) + "-" + str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
+    #raise Exception(os.path.join('%s/'%(pasta_galeria),'%s%s'%(horario, extensao)))
+    #return os.path.join('galeria/%s/' % (pasta_galeria), '%s%s' % (horario, extensao))
+    return os.path.join('foto_social/perfil/', '%s%s'%(horario, extensao))
+
 class Perfil(models.Model):
     nome = models.CharField("Nome", max_length=250)
     cargo = models.CharField("Cargo", max_length=250)
     area = models.CharField(u"Área", max_length=250)
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to="foto_social/perfil", sizes=((180, 237),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to= 'foto_social/perfil', sizes=((180, 237),), null=True, blank=True,)
     
     def save(self, force_insert=False, force_update=False):
         super(Perfil, self).save(force_insert, force_update)
+        
         foto = str(self.foto)
         if foto != '':        
             f = str(foto).split('.') 
@@ -28,7 +41,6 @@ class Perfil(models.Model):
                         
             super(Perfil, self).save(force_insert, force_update)
             """ Apaga a foto original da pasta """
-            
         else:
             super(Perfil, self).save(force_insert, force_update)
         

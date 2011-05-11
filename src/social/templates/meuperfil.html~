@@ -8,12 +8,15 @@
 
 <div id="conteudo_geral">
 	<h2>Meu Perfil</h2>
+
     <div id="meuperfil">
-        
+
         <div id="foto_meuperfil">
-            <img src="{{MEDIA_URL}}{{perfil.foto}}" />
+            <img src="{{MEDIA_URL}}foto_social{{perfil.foto}}" />
         </div>
         
+        	{{MEDIA_URL}}foto_social/perfil{{perfil.foto}}
+	
         <div id = "dados_pessoais">
             <strong>Nome</strong> : {{perfil.nome}}</br> 
             <strong>Cargo</strong> : {{perfil.cargo}}</br>
@@ -52,13 +55,16 @@
                  
             </div>
             {%endfor%}
+            
+        <div id="project-label">Buscar usuarios</div>
+	    <img id="project-icon" src="/demos/autocomplete/images/transparent_1x1.png"  class="ui-state-default"//>
+	    <input id="project"/>
+	    <input type="hidden" id="project-id"/>
+
+
+            
         </div>
      
-     
-     
-   
-        
-       
         
     </div>
 	
@@ -72,6 +78,48 @@
 	{% endblock %}
 
 	{% block scriptjs%}
+	
+	<script>
+	$(function() {
+		var projects = [
+		    {% for p in lista_perfil %}
+		
+		
+			    {
+				    value: "{{p.user}}",
+				    label: "{{p.user}}",
+				    desc: "{{p.nome}}",
+				    icon: "{{MEDIA_URL}}{{p.foto}}"
+			    },
+		
+			{% endfor %}
+		];
+
+		$( "#project" ).autocomplete({
+			minLength: 0,
+			source: projects,
+			focus: function( event, ui ) {
+				$( "#project" ).val( ui.item.label );
+				return false;
+			},
+			select: function( event, ui ) {
+				$( "#project" ).val( ui.item.label );
+				$( "#project-id" ).val( ui.item.value );
+				$( "#project-description" ).html( ui.item.desc );
+				$( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+
+				return false;
+			}
+		})
+		.data( "autocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+				.appendTo( ul );
+		};
+	});
+	</script>
+
 
 	{% endblock %}
 

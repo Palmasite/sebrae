@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import *
-from social.views import perfil, Album
+from social.views import perfil, album
 
 urlpatterns = patterns('',
     (r'^del/(?P<tabela>\w+)/(?P<tabela_id>\d+)/$', 'social.views.deletar'),
@@ -10,5 +10,5 @@ urlpatterns = patterns('',
     (r'^redes/', 'social.views.social'),
     (r'^meuperfil/(?P<user_id>\w+)/ver', 'social.views.meuperfil'),
     (r'^album/', 'social.views.album_foto'),
-
+ 
 )

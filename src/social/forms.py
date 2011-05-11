@@ -7,7 +7,6 @@ from django.forms.fields import CharField, DateTimeField
 
 class PerfilForm(ModelForm):
     user = forms.CharField(widget=forms.HiddenInput())
-
     class Meta:
         model = Perfil
         
