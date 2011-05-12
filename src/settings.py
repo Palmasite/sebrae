@@ -152,7 +152,7 @@ EMAIL_PORT = 587
 
 
 
-LOGIN_URL = '/admin/'
+LOGIN_URL = '/logar'
 
 LOGIN_EXEMPT_URLS = (
  #r'^about\.html$',

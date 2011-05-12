@@ -69,7 +69,38 @@ def index(request):
     
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 
+
 def logar(request):
+    
+    if request.method == 'POST':
+        user = request.POST['username']
+        passw = request.POST['password']
+        menssage = ""        
+        user_login = authenticate(username=user, password=passw)    
+
+        if user_login is not None:
+            if user_login.is_active:
+                login(request, user_login)
+                request.session['username'] = user
+                return HttpResponseRedirect('/index')
+                
+            else:
+                menssage  = '<span style="color:#A20000">usario não ativo<span>'
+                return render_to_response('login.html', locals(), context_instance=RequestContext(request))
+        else:
+            menssage  = '<span style="color:#A20000">usario não ativo<span>'
+            return render_to_response('login.html', locals(), context_instance=RequestContext(request))
+    else:
+        return render_to_response('login.html', locals(), context_instance=RequestContext(request))
+       
+
+def sair(request):
+    logout(request)
+    return redirect('/index')
+    
+    
+    
+'''def logar(request):
     mimetype = 'application/javascript'  
     
     user = request.POST['username']
@@ -85,8 +116,4 @@ def logar(request):
     else:
         retorno = {'status':'no', 'message':'<span style="color:#A20000">Usuário ou senha inválido<span>'}
     
-    return HttpResponse(simplejson.dumps(retorno), mimetype)
-
-def sair(request):
-    logout(request)
-    return redirect('/index')
+    return HttpResponse(simplejson.dumps(retorno), mimetype)'''

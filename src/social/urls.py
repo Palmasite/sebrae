@@ -10,5 +10,5 @@ urlpatterns = patterns('',
     (r'^redes/', 'social.views.social'),
     (r'^meuperfil/(?P<user_id>\w+)/ver', 'social.views.meuperfil'),
     (r'^album/', 'social.views.album_foto'),
- 
+
 )

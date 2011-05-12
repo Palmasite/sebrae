@@ -14,13 +14,16 @@ from social.models import Perfil
 import random 
 
 def auth(request):
-    #if request.session['username']:
-    #     user_perfil = Perfil.objects.get(user=auth)
-    #    return HttpResponseRedirect('/admin')
-
-    #raise Exception(Session.objects.filter(pk='logado'))
-
-    return HttpResponseRedirect('/admin')
+    try:
+        if request.session['username']:
+            auth = True
+            perfil = Perfil.objects.get(user =request.session['username'] )
+            
+        else:
+            auth = False
+    except KeyError:
+        auth = False 
+    return locals()
 
 def ultimo_video(request):
     #ultimo video

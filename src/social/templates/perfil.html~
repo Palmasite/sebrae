@@ -17,11 +17,7 @@
         <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 	<div id="formperfil">
-<<<<<<< HEAD
-		<form method="POST"  enctype="multipart/form-data">
-=======
-		<form method="POST">
->>>>>>> d1cfe1313d0ac535ed95c073874a0597d01805c3
+		<form method="POST" enctype="multipart/form-data">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
@@ -45,7 +41,7 @@
 	    {% endfor %}
 	    <a href="/perfil/album/" class="ver_mais">Adicionar mais</a>
 	    {% else %}
-	    <span> Não possui fotos no album. Para adicionar click <a href="#">aqui</a>  </span>
+	    <span> Não possui fotos no album. Para adicionar click <a href="/perfil/album/">aqui</a>  </span>
 	    {% endif %}
 	    
 	</div>

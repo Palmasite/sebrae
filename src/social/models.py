@@ -26,23 +26,23 @@ class Perfil(models.Model):
     area = models.CharField(u"Área", max_length=250)
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to= 'foto_social/perfil', sizes=((180, 237),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to= upload_to_foto_perfil, sizes=((90, 97),), null=True, blank=True,)
     
-    def save(self, force_insert=False, force_update=False):
-        super(Perfil, self).save(force_insert, force_update)
-        
+    def save(self):
+        super(Perfil, self).save()
+     
         foto = str(self.foto)
         if foto != '':        
             f = str(foto).split('.') 
             """ Renomeia img_foto"""
-            if not "180x237" in f:    
-                self.foto = f[0] + '.180x237.' + f[1]
+            if not "90x97" in f:    
+                self.foto = f[0] + '.90x97.' + f[1]
                 os.remove(settings.MEDIA_ROOT + '/' + foto)
                         
-            super(Perfil, self).save(force_insert, force_update)
+            super(Perfil, self).save()
             """ Apaga a foto original da pasta """
         else:
-            super(Perfil, self).save(force_insert, force_update)
+            super(Perfil, self).save()
         
     def __unicode__(self):
         return unicode(self.nome)

@@ -16,12 +16,12 @@
 		{% else %}
 			{% if not user_perfil.img_foto %}
 				<div id="auth_foto">
-					<img src="{{MEDIA_URL}}/images_portal/user_none.jpg"  />
+					<img src="{{MEDIA_URL}}{{perfil.foto}}"  />
 				{{user_perfil.img_foto}}
 				</div>
 			{% endif %}
 			SEJA BEM VINDO
-			 <br /><strong>{{auth.username}}</strong>
+			 <br /><strong>{{perfil.nome}}</strong>
 			<a href="/logout/">Sair</a>
 		{% endif %}
 		
