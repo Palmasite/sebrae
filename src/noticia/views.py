@@ -20,8 +20,8 @@ def noticia_categoria(request,categoria_id):
     return render_to_response('mais_noticias.html', locals(), context_instance=RequestContext(request))
 
 def detalhar_noticia(request, noticia_id):
-    noticias_detalhadas = Noticia.objects.filter(int_idnoticia=noticia_id).order_by('dat_noticia')[:10]
-    noticias_relacionadas = Noticia.objects.filter(categoria=noticias_detalhadas[0].categoria).exclude(int_idnoticia=noticia_id).order_by('-dat_noticia')[:3]
+    noticia_detalhada = Noticia.objects.filter(int_idnoticia=noticia_id).order_by('dat_noticia')[:10]
+    noticia_relacionada = Noticia.objects.filter(categoria=noticia_detalhada[0].categoria).exclude(int_idnoticia=noticia_id).order_by('-dat_noticia')[:3]
     return render_to_response('noticiadetalhada.html', locals(), context_instance=RequestContext(request))
 
 def buscar_noticia(request):

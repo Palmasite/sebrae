@@ -49,7 +49,7 @@ span.ui-icon{float:left}
 #image_rodape{width:1000px;height:85%;margin:0 auto;background:url("../images_portal/img_rodape_bg.png") no-repeat}
 #rodape_palmasite{color:#fff;width:1000px;height:5%;margin:0 auto;text-align: left;background-color:#1F5396;padding:5px 0}
 #info{margin:0 10px}
-#conteudo_geral, table{width:98%;margin:10px}
+#conteudo_geral, table{width:100%;margin:10px}
 #conteudo_geral h2{text-align:left;padding-left:20px}
 #conteudo_geral thead tr th{background:#2F5F9D;padding:5px;text-transform: uppercase;color:#fff;font-size:13px}
 #conteudo_geral tbody tr.linha1{background:#ddd;font-size:14px;border-bottom:solid 1px #aaa}
