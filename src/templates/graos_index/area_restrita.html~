@@ -16,12 +16,26 @@
 		{% else %}
 			{% if not user_perfil.img_foto %}
 				<div id="auth_foto">
-					<img src="{{MEDIA_URL}}{{perfil.foto}}"  />
+					<a href="perfil/meuperfil/{{perfil.user}}/ver" ><img src="{{MEDIA_URL}}{{perfil.foto}}"  /></a>
 				{{user_perfil.img_foto}}
 				</div>
 			{% endif %}
 			SEJA BEM VINDO
-			 <br /><strong>{{auth.username}}</strong>
+			 <br /><strong>{{perfil.nome}}</strong>
+			 
+			     <div id="editar_perfil">
+			         <a href="/perfil/perfil/" title="Editar perfil" class="colorTipContainer yellow"> <img src="{{MEDIA_URL}}images_portal/editar_perfil.jpg"/> </a>
+			     </div>
+			 
+			     <div id="editar_album">
+			         <a href="perfil/album/"> <img alt="Adicionar foto " src="{{MEDIA_URL}}images_portal/editar_album.jpg"/> </a>
+			     </div>
+			     
+			     <div id="demo" title="jlkhdfçjkahsdjh">
+			     dlfjdfjd
+			     </div>
+			     
+			
 			<a href="/logout/">Sair</a>
 		{% endif %}
 		

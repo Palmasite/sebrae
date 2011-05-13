@@ -3,6 +3,8 @@
  */
 
 
+
+
 /*carregar pagina*/
 	jQuery(function($){
 		$( "button, input:submit", "" ).button();
@@ -12,6 +14,9 @@
 			buttonImage: "/media/css/images_portal/",
 			buttonImageOnly: true
 		});
+		
+		
+		$("a[title]").tooltip();
 		
 	});
 

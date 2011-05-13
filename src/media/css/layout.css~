@@ -395,6 +395,22 @@ ul.eventos_lista li span{font-weight: bold}
 #menu_geral{background:#333;border-left:solid 5px #123345; }
 
 #buscar_peril{float: left;margin-left: 330px;}
-#project-label{color:#125468}
+#project-label{vertical-align: baseline;font-family: Arial, Droid, Verdana, Helvetica, sans-serif;line-height: 1.3em;}
+
+
+#editar_perfil{float:left;margin-right:5px;padding-left:60px}
+#editar_album{float:left;padding-right:60px}
+
+
+.tooltip {
+	display:none;
+	background:transparent url(../tooltip/img/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+
 
 
