@@ -1,19 +1,46 @@
-<h2 class="header">Area Restrita</h2>
 
-		<div id ="messages_login"><span>Por favor entre com os seus dados pessoais {{menssage}}</span></div>
+<!DOCTYPE html>
+<html lang="pt">
+
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{%  block titulo %}Login{% endblock %}</title>
+		<link rel="stylesheet" href="{{MEDIA_URL}}css/layout.css" type="text/css" media="screen" />
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	
+	<body>
+
+	<div style="margin-top:200px;" id="head">
+			<div id="topo">
+				<div style="text-align:center;color:#fff"id="cabecalho">
+				    <div style="text-align:center;float:left;margin-left:200px;" id="ola"> Por favor entre com os seus dados pessoais. </div>
+				    <div style="text-align:center;float:left; color:#FF4040" id="mensagem">{{menssage}} </div>
+				</div>
+				<div style="background:url({{MEDIA_URL}}images_portal/logo.png) no-repeat; height:50px; margin:27px;margin-left: 100px;" id="logo">
+					
+					
+				<div style="margin-left:200px; margin-top:10px; color:#fff" id="login">
+			          <form method="POST" action="/logar">
+	                            Login: <input style="font-size:16px;" id="login_user" name="username" type="text" /> 
+	                            Senha: <input style="font-size:16px;background: url('{{MEDIA_URL}}images_portal/pass.jpg') no-repeat white;
+padding-left: 30px;" id="login_pass" name="password" type="password" />
 		
-		<fieldset id="login_form">
+                                   <input type="submit" value="logar" />
+	                  </form>
+	            </div>
 
+				</div>
 
-			<h3>Formulario de contato</h3>
-			<form method="POST" action="/logar">
-			login: <input id="login_user" name="username" type="text" /> 
-			senha: <input id="login_pass" name="password" type="password" />
-				
-		        <input type="submit" value="logar" />
-			</form>
+			</div>
 
-		</fieldset>
+		</div>
 		
-	</div>
-</div>
+	</body>
+</html>
+
+	
+
+
+
+
+

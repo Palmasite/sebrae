@@ -60,14 +60,19 @@
                  
             </div>
             {%endfor%}
-            
-        <div id="project-label">Buscar usuarios</div>
-	    <img id="project-icon" src="{{MEDIA_URL}}images_portal/user_none.jpg"  class="ui-state-default"/>
-	    <input id="project"/>
-	    <input type="hidden" id="project-id"/>
-	    <a id="acesso-id">Visualizar perfil</a>
-
-        </div>
+ 
+     </div>
+        
+        
+            <div id="buscar_peril">
+                <div id="project-label">Buscar usuarios</div>
+	                
+	                <input id="project"/>
+	                <input type="hidden" id="project-id"/>
+	                 <a id="acesso-id"><img id="project-icon" src="{{MEDIA_URL}}images_portal/user_none.jpg"  class="ui-state-default"/></a>
+                </div>
+            </div>   
+        
         
         <div class="galeria_perfil">
             <h2>Dados profissonais</h2>
@@ -98,9 +103,11 @@
                 
             {% endfor %}
          
-            
 
         </div>
+        
+        
+ 
         
         
         
@@ -148,6 +155,47 @@
 
 	{% block scriptjs%}
 	
+	<script>
+	$(function() {
+		var projects = [
+		    {% for p in lista_perfil %}
+		
+		
+			    {
+				    value: "{{p.user}}",
+				    label: "{{p.user}}",
+				    desc: "{{p.nome}}",
+				    icon: "{{p.foto}}"
+			    },
+		
+			{% endfor %}
+		];
+
+		$( "#project" ).autocomplete({
+			minLength: 0,
+			source: projects,
+			focus: function( event, ui ) {
+				$( "#project" ).val( ui.item.label );
+				return false;
+			},
+			select: function( event, ui ) {
+				$( "#project" ).val( ui.item.label );
+				$( "#project-id" ).val( ui.item.value );
+				$( "#project-description" ).html( ui.item.desc );
+				$( "#project-icon" ).attr( "src", "{{MEDIA_URL}}" + ui.item.icon );
+				$( "#acesso-id").attr("href", "/perfil/meuperfil/"+ui.item.value+"/ver");
+
+				return false;
+			}
+		})
+		.data( "autocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+				.appendTo( ul );
+		};
+	});
+	</script>
 	
 	
 	<script type="text/javascript">

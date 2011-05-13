@@ -85,10 +85,10 @@ def logar(request):
                 return HttpResponseRedirect('/index')
                 
             else:
-                menssage  = '<span style="color:#A20000">usario não ativo<span>'
+                menssage  =  ' O usuario '+user.upper()+' nao esta ativo.'
                 return render_to_response('login.html', locals(), context_instance=RequestContext(request))
         else:
-            menssage  = '<span style="color:#A20000">usario não ativo<span>'
+            menssage  = ' O usuario '+user.upper()+' nao esta ativo.'
             return render_to_response('login.html', locals(), context_instance=RequestContext(request))
     else:
         return render_to_response('login.html', locals(), context_instance=RequestContext(request))

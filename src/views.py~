@@ -77,8 +77,7 @@ def logar(request):
         passw = request.POST['password']
         menssage = ""        
         user_login = authenticate(username=user, password=passw)    
-        
-        raise Exception
+
         if user_login is not None:
             if user_login.is_active:
                 login(request, user_login)
@@ -86,10 +85,10 @@ def logar(request):
                 return HttpResponseRedirect('/index')
                 
             else:
-                menssage  = '<span style="color:#A20000">usario não ativo<span>'
+                menssage  =  ' O usuario '+user.upper()+' nao esta ativo'
                 return render_to_response('login.html', locals(), context_instance=RequestContext(request))
         else:
-            menssage  = '<span style="color:#A20000">usario não ativo<span>'
+            menssage  = ' O usuario '+user.upper()+' nao esta ativo'
             return render_to_response('login.html', locals(), context_instance=RequestContext(request))
     else:
         return render_to_response('login.html', locals(), context_instance=RequestContext(request))
