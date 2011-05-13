@@ -209,6 +209,12 @@ h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
 
 #foto_meuperfil{margin:20px;padding:10px;border:solid 1px #ccc;background:#fff;float:left }
 #dados_pessoais{margin:8px 0;float:left}
+#buscar_peril{margin:8px 0 0 150px;float:left}
+#buscar_peril input{float:left;margin: 15px 5px;border:solid 1px #333;background: url("../images_portal/busca.png")no-repeat white;padding-left: 35px;width:250px}
+#buscar_peril a{float:right}
+#project-label{font-size:14px;font-weight:bold}
+.ui-menu-item{text-align:left}
+
 
 /*
  * enquete
@@ -393,8 +399,5 @@ ul.eventos_lista li span{font-weight: bold}
 
 
 #menu_geral{background:#333;border-left:solid 5px #123345; }
-
-#buscar_peril{float: left;margin-left: 330px;}
-#project-label{vertical-align: baseline;font-family: Arial, Droid, Verdana, Helvetica, sans-serif;line-height: 1.3em;}
 
 

@@ -49,7 +49,7 @@ span.ui-icon{float:left}
 #image_rodape{width:1000px;height:85%;margin:0 auto;background:url("../images_portal/img_rodape_bg.png") no-repeat}
 #rodape_palmasite{color:#fff;width:1000px;height:5%;margin:0 auto;text-align: left;background-color:#1F5396;padding:5px 0}
 #info{margin:0 10px}
-#conteudo_geral, table{width:98%;margin:10px}
+#conteudo_geral, table{width:100%;margin:10px}
 #conteudo_geral h2{text-align:left;padding-left:20px}
 #conteudo_geral thead tr th{background:#2F5F9D;padding:5px;text-transform: uppercase;color:#fff;font-size:13px}
 #conteudo_geral tbody tr.linha1{background:#ddd;font-size:14px;border-bottom:solid 1px #aaa}
@@ -209,6 +209,12 @@ h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
 
 #foto_meuperfil{margin:20px;padding:10px;border:solid 1px #ccc;background:#fff;float:left }
 #dados_pessoais{margin:8px 0;float:left}
+#buscar_peril{margin:8px 0 0 200px;float:left}
+#buscar_peril input{float:left;margin: 15px 5px;border:solid 1px #333;background: url("../images_portal/busca.png")no-repeat white;padding-left: 35px;width:250px}
+#buscar_peril a{float:right}
+#project-label{font-size:14px;font-weight:bold}
+.ui-menu-item{text-align:left}
+
 
 /*
  * enquete
@@ -393,8 +399,5 @@ ul.eventos_lista li span{font-weight: bold}
 
 
 #menu_geral{background:#333;border-left:solid 5px #123345; }
-
-#buscar_peril{float: left;margin-left: 330px;}
-#project-label{color:#125468}
 
 

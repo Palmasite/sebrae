@@ -9,6 +9,13 @@
 <div id="conteudo_geral">
 	<h2>Meu Perfil</h2>
 
+    <div class="aux_form">
+        <a href="/perfil/perfil/"  ><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+    </div>
+
     <div id="meuperfil">
 
         <div id="foto_meuperfil">
@@ -64,44 +71,44 @@
      </div>
         
         
-            <div id="buscar_peril">
-                <div id="project-label">Buscar usuarios</div>
-	                
-	                <input id="project"/>
-	                <input type="hidden" id="project-id"/>
-	                 <a id="acesso-id"><img id="project-icon" src="{{MEDIA_URL}}images_portal/user_none.jpg"  class="ui-state-default"/></a>
-                </div>
-            </div>   
+<div id="buscar_peril">
+    <div id="project-label">Buscar usuarios</div>    
+        <input id="project"/>
+        <input type="hidden" id="project-id"/>
+         <a id="acesso-id"><img id="project-icon" src="{{MEDIA_URL}}images_portal/user_none.jpg"  class="ui-state-default"/></a>
+    </div>
+</div>   
         
         
         <div class="galeria_perfil">
             <h2>Dados profissonais</h2>
+           
+           <strong style="font-size:14px;text-transform:uppercase;margin:15px;border-bottom:solid 1px;display:block">Profição</strong>
+            {% for pro in profissional_list%}
             
+                <div style="margin:0px 30px;font-size:14px" class="c">
+                 {% if pro.tipo == '1' %}
+                <strong>{{pro.formacao}}</strong>- {{pro.instituicao}} 
+                {%endif%}
+                
+                </div>
+                
+            {% endfor %} 
             
-           Especializacao
+           <strong style="font-size:14px;text-transform:uppercase;margin:15px;border-bottom:solid 1px #f5f5f5;display:block">Especialização</strong>
             {% for pro in profissional_list%}
            
                
-                <div class="c">
+                <div style="margin:0px 30px;font-size:14px" class="c">
                        {% if pro.tipo == '2' %}
-                {{pro.formacao}} -  {{pro.instituicao}} 
+                <strong>{{pro.formacao}}</strong> -  {{pro.instituicao}} 
                 {%endif%}
                 
                 </div>
 
             {% endfor %}
             
-            Proficao
-            {% for pro in profissional_list%}
             
-                <div class="per">
-                 {% if pro.tipo == '1' %}
-                {{pro.formacao}} - {{pro.instituicao}} 
-                {%endif%}
-                
-                </div>
-                
-            {% endfor %}
          
 
         </div>
@@ -163,8 +170,7 @@
 		
 			    {
 				    value: "{{p.user}}",
-				    label: "{{p.user}}",
-				    desc: "{{p.nome}}",
+				    label: "{{p.nome}}",
 				    icon: "{{p.foto}}"
 			    },
 		
@@ -181,7 +187,6 @@
 			select: function( event, ui ) {
 				$( "#project" ).val( ui.item.label );
 				$( "#project-id" ).val( ui.item.value );
-				$( "#project-description" ).html( ui.item.desc );
 				$( "#project-icon" ).attr( "src", "{{MEDIA_URL}}" + ui.item.icon );
 				$( "#acesso-id").attr("href", "/perfil/meuperfil/"+ui.item.value+"/ver");
 
@@ -191,7 +196,7 @@
 		.data( "autocomplete" )._renderItem = function( ul, item ) {
 			return $( "<li></li>" )
 				.data( "item.autocomplete", item )
-				.append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+				.append( "<a style='border-bottom:solid 1px #ccc'>" + item.label +"</a>" )
 				.appendTo( ul );
 		};
 	});
