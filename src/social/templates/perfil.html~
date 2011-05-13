@@ -30,7 +30,7 @@
 	</div>
 	
 	<div class="pefil_galeria">
-	    {% if list_fotos %}
+	   
 
         {% for foto in list_fotos %}
 				    <div class="galeria_full_perfil">
@@ -44,9 +44,7 @@
 
 	    {% endfor %}
 	    <a href="/perfil/album/" class="ver_mais">Adicionar mais</a>
-	    {% else %}
-	    <span> Não possui fotos no album. Para adicionar click <a href="/perfil/album/">aqui</a>  </span>
-	    {% endif %}
+
 	    
 	</div>
 	
