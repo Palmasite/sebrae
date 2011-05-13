@@ -7,7 +7,6 @@ from django.forms.fields import CharField, DateTimeField
 
 class PerfilForm(ModelForm):
     user = forms.CharField(widget=forms.HiddenInput())
-
     class Meta:
         model = Perfil
         
@@ -28,6 +27,7 @@ class RedeSocialForm(ModelForm):
         
 class AlbumForm(ModelForm):
     img_miniatura = CharField(required=False, widget = HiddenInput())
+    user = forms.CharField(widget=forms.HiddenInput())
     #dat_foto = DateTimeField(required=False, widget = HiddenInput())
     class Meta:
         model = Album

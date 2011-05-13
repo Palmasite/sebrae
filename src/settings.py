@@ -113,6 +113,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.publicidade",
     "processors.enquete",
     "processors.menu",
+    "processors.perfis",
     
     # django 1.2 somente 
     'django.contrib.messages.context_processors.messages' , 
@@ -151,7 +152,7 @@ EMAIL_PORT = 587
 
 
 
-LOGIN_URL = '/admin/'
+LOGIN_URL = '/logar'
 
 LOGIN_EXEMPT_URLS = (
  #r'^about\.html$',

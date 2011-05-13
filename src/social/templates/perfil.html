@@ -25,6 +25,10 @@
 		</form>
 	</div>
 	
+	<div id="instruções">
+	    <img style="margin-left:50px" src="{{MEDIA_URL}}images_portal/perfil/manual_perfil.png">    
+	</div>
+	
 	<div class="pefil_galeria">
 	    {% if list_fotos %}
 
@@ -46,35 +50,35 @@
 	    
 	</div>
 	
-	{% if perfil_list  %}
+    {% if perfil_list  %}
    
-    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
-        <thead>
-            <th>Tipo</th>
-            <th>Formação</th>
-            <th>Instituição</th>
-            <th>Local</th>
-            <th>Ações</th>
-        </thead>
-        <tbody>
-            {%for profissional in perfil_list%}
-            <tr class="{%cycle 'linha1' 'linha2' %}" >
-                {%if profissional.tipo = "1" %}
-                    <td> Profissional</td>
-                {%else%}
-                    <td>Especialização</td>
-                {%endif%}
-                <td>{{profissional.formacao}}</td>
-                <td>{{profissional.instituicao}}</td>
-                <td>{{profissional.local}}</td>
+        <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <th>Tipo</th>
+                <th>Formação</th>
+                <th>Instituição</th>
+                <th>Local</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                {%for profissional in perfil_list%}
+                <tr class="{%cycle 'linha1' 'linha2' %}" >
+                    {%if profissional.tipo = "1" %}
+                        <td> Profissional</td>
+                    {%else%}
+                        <td>Especialização</td>
+                    {%endif%}
+                    <td>{{profissional.formacao}}</td>
+                    <td>{{profissional.instituicao}}</td>
+                    <td>{{profissional.local}}</td>
 
-            </tr>
-            {%endfor%}
-        </tbody>
+                </tr>
+                {%endfor%}
+            </tbody>
 
-    </table>
+        </table>
     
-{%endif%}
+    {%endif%}
 	
 </div>
 	{%endblock%}

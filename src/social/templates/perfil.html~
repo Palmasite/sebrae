@@ -17,16 +17,16 @@
         <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 	<div id="formperfil">
-<<<<<<< HEAD
-		<form method="POST"  enctype="multipart/form-data">
-=======
-		<form method="POST">
->>>>>>> d1cfe1313d0ac535ed95c073874a0597d01805c3
+		<form method="POST" enctype="multipart/form-data">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
 			 
 			 <input type="submit" value="Savar alterações" ></input>
 			
 		</form>
+	</div>
+	
+	<div id="instruções">
+	    <img style="margin-left:20px" src="{{MEDIA_URL}}images_portal/perfil/manual_perfil.png">    
 	</div>
 	
 	<div class="pefil_galeria">
@@ -45,40 +45,40 @@
 	    {% endfor %}
 	    <a href="/perfil/album/" class="ver_mais">Adicionar mais</a>
 	    {% else %}
-	    <span> Não possui fotos no album. Para adicionar click <a href="#">aqui</a>  </span>
+	    <span> Não possui fotos no album. Para adicionar click <a href="/perfil/album/">aqui</a>  </span>
 	    {% endif %}
 	    
 	</div>
 	
-	{% if perfil_list  %}
+    {% if perfil_list  %}
    
-    <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
-        <thead>
-            <th>Tipo</th>
-            <th>Formação</th>
-            <th>Instituição</th>
-            <th>Local</th>
-            <th>Ações</th>
-        </thead>
-        <tbody>
-            {%for profissional in perfil_list%}
-            <tr class="{%cycle 'linha1' 'linha2' %}" >
-                {%if profissional.tipo = "1" %}
-                    <td> Profissional</td>
-                {%else%}
-                    <td>Especialização</td>
-                {%endif%}
-                <td>{{profissional.formacao}}</td>
-                <td>{{profissional.instituicao}}</td>
-                <td>{{profissional.local}}</td>
+        <table id="perfil" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <th>Tipo</th>
+                <th>Formação</th>
+                <th>Instituição</th>
+                <th>Local</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                {%for profissional in perfil_list%}
+                <tr class="{%cycle 'linha1' 'linha2' %}" >
+                    {%if profissional.tipo = "1" %}
+                        <td> Profissional</td>
+                    {%else%}
+                        <td>Especialização</td>
+                    {%endif%}
+                    <td>{{profissional.formacao}}</td>
+                    <td>{{profissional.instituicao}}</td>
+                    <td>{{profissional.local}}</td>
 
-            </tr>
-            {%endfor%}
-        </tbody>
+                </tr>
+                {%endfor%}
+            </tbody>
 
-    </table>
+        </table>
     
-{%endif%}
+    {%endif%}
 	
 </div>
 	{%endblock%}

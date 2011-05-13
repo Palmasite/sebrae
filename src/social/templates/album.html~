@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
-{%  block titulo %}Galeria imagens{% endblock %}
+{%  block titulo %}Pefil Imagens{% endblock %}
 
 {% block direita %}{% endblock %}
+{% block esquerda %}{% endblock %}
 
 {% block includecss %}
 	<link rel="stylesheet" href="{{MEDIA_URL}}css/fancybox/jquery.fancybox-1.3.4.css" type="text/css" />
@@ -10,8 +11,14 @@
 
 {%block conteudo%}
 
-<div id="conteudo_interno">
-	<h3>Album</h3>
+<div id="conteudo_geral">
+	<h2>Album</h2>
+	<div class="aux_form">
+        <a href="/perfil/perfil/"  class="select" ><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+    </div>
 	<div id="formperfil">
 		<form method="POST" enctype="multipart/form-data">
 			 {% if formalbum %}{{formalbum.as_table}}{% endif %}
