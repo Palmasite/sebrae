@@ -31,6 +31,6 @@ class ArquivoAdmin(admin.ModelAdmin):
     
     
 admin.site.register(Galeria, GaleriaAdmin)
-admin.site.register(Arquivo, ArquivoAdmin)
+#admin.site.register(Arquivo, ArquivoAdmin)
     
 

@@ -1,0 +1,28 @@
+
+
+
+<div id="aniversariante">
+{% for niver in aniversariantes %}
+    <div class="aniversariante_foto">
+        
+        <img src="{{MEDIA_URL}}{{niver.foto}}" >      
+        
+    </div>
+     <div class="rodape_foto">
+        
+        </div>    
+        
+             <div class="aniversariante_nome">
+             
+             {{niver.nome}}
+        
+        </div>    
+        
+             <div class="aniversariante_data">
+             {{niver.datanascimento|date:"d / M"}}
+        
+        </div> 
+{% endfor %}    
+</div>
+
+

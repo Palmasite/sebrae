@@ -2,7 +2,7 @@
 <html lang="pt">
 
 	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>{%  block titulo %}espiga.com{% endblock %}</title>
+		<title>{%  block titulo %}Sebrae{% endblock %}</title>
 		<link rel="stylesheet" href="{{MEDIA_URL}}css/layout.css" type="text/css" media="screen" />
 		
 		
@@ -86,7 +86,7 @@
 	
 	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery_ui/jquery-ui-1.8.11.custom.min.js"></script>
-	<script type="text/javascript" src="{{MEDIA_URL}}js/colortip/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/tooltip/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="{{MEDIA_URL}}js/paginas_internas/index.js"></script>
 	
 	

@@ -13,11 +13,14 @@ from social.models import Perfil
 
 import random 
 
+import datetime
+
 def auth(request):
     try:
         if request.session['username']:
             auth = True
-            perfil = Perfil.objects.get(user =request.session['username'] )
+            if Perfil.objects.filter(user =request.session['username']):
+                perfil = Perfil.objects.get(user =request.session['username'] )
             
         else:
             auth = False
@@ -91,6 +94,19 @@ def menu(request):
     
 def perfis(request):
     lista_perfil = Perfil.objects.all()
+    
+    return locals()
+    
+def aniversariante(request):
+    todos_aniversariantes = Perfil.objects.all()
+    agora = datetime.date.today()
+    mes  = agora.month
+    
+    aniversariantes = []
+    
+    for niver in todos_aniversariantes:
+        if mes == niver.datanascimento.month:
+            aniversariantes.append(niver)
     
     return locals()
     

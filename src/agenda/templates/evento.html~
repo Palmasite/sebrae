@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{%  block titulo %}Eventos{% endblock %}
+{%  block titulo %}Contatos{% endblock %}
 
 {% block conteudo %}
 	<div id="conteudo_interno">

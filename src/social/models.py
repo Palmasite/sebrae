@@ -24,9 +24,11 @@ class Perfil(models.Model):
     nome = models.CharField("Nome", max_length=250)
     cargo = models.CharField("Cargo", max_length=250)
     area = models.CharField(u"Área", max_length=250)
+    datanascimento = models.DateField("Data de Nascimento")
     matricula = models.CharField("Matricula", max_length=250)
     user = models.CharField("UserName", max_length=250)
-    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to= upload_to_foto_perfil, sizes=((90, 97),), null=True, blank=True,)
+    foto = ImageWithThumbsField(verbose_name="Foto ", upload_to= upload_to_foto_perfil, sizes=((110, 160),), null=True, blank=True,)
+    
     
     def save(self):
         super(Perfil, self).save()
@@ -35,8 +37,8 @@ class Perfil(models.Model):
         if foto != '':        
             f = str(foto).split('.') 
             """ Renomeia img_foto"""
-            if not "90x97" in f:    
-                self.foto = f[0] + '.90x97.' + f[1]
+            if not "110x160" in f:    
+                self.foto = f[0] + '.110x160.' + f[1]
                 os.remove(settings.MEDIA_ROOT + '/' + foto)
                         
             super(Perfil, self).save()

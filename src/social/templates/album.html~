@@ -12,14 +12,22 @@
 
 <div id="conteudo_interno">
 	<h3>Album</h3>
-	<div id="formperfil">
-		<form method="POST" enctype="multipart/form-data">
-			 {% if formalbum %}{{formalbum.as_table}}{% endif %}
-			 
-			 <input type="submit" value="Savar alterações" ></input>
-			
-		</form>
+	
+	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+					<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
+					<strong>Alerta:</strong> {{alerta}}.</p>
 	</div>
+	
+	{% if perfil %}
+	    <div id="formperfil">
+		    <form method="POST" enctype="multipart/form-data">
+			     {% if formalbum %}{{formalbum.as_table}}{% endif %}
+			     
+			     <input type="submit" value="Savar alterações" ></input>
+			
+		    </form>
+	    </div>
+	{% endif %}
 	
 {% if list_fotos  %}
     

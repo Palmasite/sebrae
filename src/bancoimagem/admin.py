@@ -28,6 +28,6 @@ class BancoImagemAdmin(admin.ModelAdmin):
     model = BancoImagem
     
 admin.site.register(Galeria, GaleriaAdmin)
-admin.site.register(BancoImagem, BancoImagemAdmin)
+#admin.site.register(BancoImagem, BancoImagemAdmin)
  
 
