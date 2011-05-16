@@ -3,6 +3,8 @@
  */
 
 
+
+
 /*carregar pagina*/
 	jQuery(function($){
 		$( "button, input:submit", "" ).button();
@@ -12,6 +14,35 @@
 			buttonImage: "/media/css/images_portal/",
 			buttonImageOnly: true
 		});
+		
+		/*tooltip*/
+		
+		// create custom animation algorithm for jQuery called "bouncy"
+            /*Efeito tooltip*/  
+            $.easing.bouncy = function (x, t, b, c, d) {
+                var s = 1.70158;
+                if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+                return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+            }
+
+            // create custom tooltip effect for jQuery Tooltip
+            $.tools.tooltip.addEffect("bouncy",
+
+	            // opening animation
+	            function(done) {
+		            this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+	            },
+
+	            // closing animation
+	            function(done) {
+		            this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+			            $(this).hide();
+			            done.call();
+		            });
+	            }
+            );
+		
+		$("a[title]").tooltip({effect: 'bouncy'});
 		
 	});
 
@@ -37,17 +68,27 @@ function logar(){
 /**
  * @post enquete
  */
+ 
+
+function grafico(){
+    $('table').visualize({type: 'pie', height: '150px', width: '150px'});
+};
+ 
 var opsao;
 var enquete = $("#id_enquete").val();
 function escolher(x){opsao = x ;enquete = $("#id_enquete").val();}
 function votar(){
 	$.post('/enquete/votar', {enquete:enquete,opsao:opsao} ,function(data) {
   		$('#enquete').html(data);
+  		$('#enquete').animate({height: "250px"}, 700);
+  		grafico();
 	});
 }
 function relatorio(){
 	$.get('/enquete/votar', {enquete:enquete} ,function(data) {
   		$('#enquete').html(data);
+  		$('#enquete').animate({height: "300px"}, 700);
+  		grafico();
 	});
 }
 

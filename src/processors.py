@@ -66,8 +66,8 @@ def publicidade(request):
     return locals()
 
 def enquete(request):
-    enquete
-    ultima_enquete = Enquete.objects.filter(boo_ativo = True ) [:1]
+    enquete = Enquete.objects.filter(boo_ativo = True )
+    ultima_enquete = enquete[0]
     enquete_esolhas = Escolha.objects.filter(enquete=ultima_enquete)
     
     return locals()

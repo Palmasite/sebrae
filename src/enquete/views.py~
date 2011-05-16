@@ -19,14 +19,14 @@ def votar(request):
         enquete_id = request.POST["enquete"]
         enquete = Enquete.objects.get(pk=enquete_id)
         escolha = Escolha.objects.get(pk=request.POST["opsao"])
-         #Verifica se usuário ja votou
+        escolha.votos += 1
+        escolha.save()
+        #Verifica se usuário ja votou
         ja_voto = votos.objects.filter(user = request.user,enquete = enquete)
         if ja_voto:
             resposta = "<span style='text-align:left;margin:10px'>Desculpe você ja teve participação nesta enquete, para ver os resultados clique no icone abaixo.</span>"                
             return HttpResponse(resposta)
-        escolha.votos += 1
-        escolha.save()
-           
+            
         voto = votos(enquete = enquete,voto = escolha.escolha,user = request.user)
         voto.save()
     else :

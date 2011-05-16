@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>{%  block titulo %}espiga.com{% endblock %}</title>
 		<link rel="stylesheet" href="{{MEDIA_URL}}css/layout.css" type="text/css" media="screen" />
+		
+		
 		<link rel="stylesheet" href="{{MEDIA_URL}}css/jquery_ui/jquery-ui-1.8.11.custom.css" type="text/css" media="screen" />
+
+		<link rel="stylesheet" href="{{MEDIA_URL}}css/visualize/visualize.css" type="text/css" media="screen" />
+
 		<link rel="shortcut icon" href="favicon.ico" />
 		
 		{% block includecss %}{%endblock%}
@@ -35,7 +39,7 @@
 		    {% endblock %}
 		</div>
 		
-			{% block colunaEsquerda %}
+			{% block esquerda %}
 				<div id="coluna-esquerda">
 					{% include "graos_index/area_restrita.html" %}
                 	{% include "graos_index/menu_vertical.html" %}
@@ -45,7 +49,7 @@
 			
 			{% block conteudo %}
 			<div id="conteudo">
-				
+			
 				{% include "graos_index/noticias_destaque.html" %}
 	            {% include "graos_index/noticias_lista.html" %}
 	            {% include "graos_index/eventos_full.html" %}
@@ -80,11 +84,21 @@
 		</div>
 	</body>
 	
-	<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.js"></script>
-	<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery_ui/jquery-ui-1.8.11.custom.min.js"></script>
-	<script type="text/javascript" src="{{MEDIA_URL}}/js/paginas_internas/index.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/visualize/excanvas.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/jquery_ui/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/visualize/visualize.jQuery.js"></script>
+	
+	<script type="text/javascript" src="{{MEDIA_URL}}js/tooltip/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="{{MEDIA_URL}}js/paginas_internas/index.js"></script>
+	
+	
+	
 
-	{%block includejs%}{%endblock%}
+	{%block includejs%}
+	    
+	
+	{%endblock%}
 	
 	{% block scriptjs%}{% endblock %}
 
