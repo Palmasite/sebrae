@@ -463,3 +463,14 @@ ul.eventos_lista li span{font-weight: bold}
 .visualize-info .visualize-key-label{text-align:left;border:none}
 .visualize-info .visualize-key-label li{display:inline;}
 
+/*  ANIVERSARIANTE */
+
+#aniversariante{position:relative;background:url("../images_portal/aniversariantes.jpg");width:200px;height:340px}
+.aniversariante_foto{height:150px;width:100px;background:#333;position:absolute;top:56px;left:49px }
+.rodape_foto{position:absolute;top:174px;left:24px;background:url("../images_portal/corte_aniversariante.png");height:68px;width:151px}
+
+.aniversariante_nome{position:absolute;top:196px;left:24px;height:68px;width:151px; color:#fff}
+
+.aniversariante_data{position:absolute;top:213px;left:24px;height:68px;width:151px; color:#fff}
+
+

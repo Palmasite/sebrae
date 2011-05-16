@@ -1,3 +1,5 @@
+#-*- coding:utf-8 -*-
+
 # Create your views here.
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponseRedirect
@@ -64,13 +66,14 @@ def social(request):
             formperfil = RedeSocialForm(request.POST)
             formperfil.is_valid()
             formperfil.save()
-            formperfil.cleanned_data()
+            
     except:
         pass
 
     return render_to_response('redes.html', locals(), context_instance=RequestContext(request))
     
 def album_foto(request):
+<<<<<<< HEAD
     perfil = Perfil.objects.filter(user = request.session['username'])
     list_fotos = Album.objects.filter(user=request.session['username'])
       
@@ -78,11 +81,27 @@ def album_foto(request):
     formalbum = AlbumForm(initial = {"user" : request.session['username']})
  
     if request.method == "POST":
+=======
+    
+    perfil_album = Perfil.objects.filter(user = request.session['username'])
+    
+    try:
+       
+>>>>>>> bad946f8a128e757bb29d0c6c73fa9e203ba9eeb
         
-        formalbum = AlbumForm(request.POST,request.FILES)
-        formalbum.is_valid()
-        formalbum.save()
-        formalbum
+        list_fotos = Album.objects.filter(perfil=perfil_album[0])
+          
+        #formalbum = AlbumForm()
+        formalbum = AlbumForm(initial = {"perfil":request.session['username']})
+     
+        if request.method == "POST":
+            
+            formalbum = AlbumForm(request.POST,request.FILES)
+            formalbum.is_valid()
+            formalbum.save()
+            
+    except:
+        alerta = u"Não possui perfil. Favor adicionar um perfil"
     return render_to_response('album.html', locals(), context_instance=RequestContext(request))
    
    

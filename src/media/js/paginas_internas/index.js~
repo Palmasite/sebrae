@@ -30,12 +30,12 @@
 
 	            // opening animation
 	            function(done) {
-		            this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+		            this.getTip().animate({top: '+=50'}, 500, 'bouncy', done).show();
 	            },
 
 	            // closing animation
 	            function(done) {
-		            this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+		            this.getTip().animate({top: '=0'}, 1, 'bouncy', function()  {
 			            $(this).hide();
 			            done.call();
 		            });

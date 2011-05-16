@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{%  block titulo %}Galeria imagens{% endblock %}
+{%  block titulo %}Redes{% endblock %}
 
 {% block direita %}{% endblock %}
 {% block esquerda %}{% endblock %}
@@ -10,10 +10,10 @@
 	<h2>Editar Perfil</h2>
 
     <div class="aux_form">
-        <a href="/perfil/perfil/"><span class="ui-icon ui-icon-person"></span>Perfil</a>
-        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
-        <a href="/perfil/contato/"><span class="ui-icon ui-icon-note"></span>Contatos</a>
-        <a href="/perfil/redes/"  class="select" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+        <a href="/perfil/perfil/" title="Click para inserir ou modificar dados do perfil." class="colorTipContainer yellow"><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/" title="Click para inserir ou modificar dados da profissão ou especialização." class="colorTipContainer yellow" ><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/" title="Click para inserir ou modificar contato." class="colorTipContainer yellow"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/"  class="select" title="Click para inserir ou modificar redes social." class="colorTipContainer yellow"><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
 
 	    <div id="formperfil"></>

@@ -11,6 +11,7 @@
 
 {%block conteudo%}
 
+<<<<<<< HEAD
 <div id="conteudo_geral">
 	<h2>Album</h2>
 	<div class="aux_form">
@@ -26,7 +27,27 @@
 			 <input type="submit" value="Savar alterações" ></input>
 			
 		</form>
+=======
+<div id="conteudo_interno">
+	<h3>Album</h3>
+	{%if not perfil%}
+	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+					<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
+					<strong>Alerta:</strong> {{alerta}}.</p>
+>>>>>>> bad946f8a128e757bb29d0c6c73fa9e203ba9eeb
 	</div>
+	{% endif %}
+	
+	{% if perfil %}
+	    <div id="formperfil">
+		    <form method="POST" enctype="multipart/form-data">
+			     {% if formalbum %}{{formalbum.as_table}}{% endif %}
+			     
+			     <input type="submit" value="Savar alterações" ></input>
+			
+		    </form>
+	    </div>
+	{% endif %}
 	
 {% if list_fotos  %}
     

@@ -11,11 +11,12 @@
 
 	
     <div class="aux_form">
-        <a href="/perfil/perfil/"  class="select" ><span class="ui-icon ui-icon-person"></span>Perfil</a>
-        <a href="/perfil/profissional/"><span class="ui-icon ui-icon-document"></span>Profissional</a>
-        <a href="/perfil/contato/"><span class="ui-icon ui-icon-note"></span>Contatos</a>
-        <a href="/perfil/redes/" ><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
+        <a href="/perfil/perfil/"  class="select"  title="Click para inserir ou modificar dados do perfil." class="colorTipContainer yellow"><span class="ui-icon ui-icon-person"></span>Perfil</a>
+        <a href="/perfil/profissional/"  title="Click para inserir ou modificar dados da profissão ou especialização." class="colorTipContainer yellow" ><span class="ui-icon ui-icon-document"></span>Profissional</a>
+        <a href="/perfil/contato/" title="Click para inserir ou modificar contato." class="colorTipContainer yellow"><span class="ui-icon ui-icon-note"></span>Contatos</a>
+        <a href="/perfil/redes/" title="Click para inserir ou modificar redes social." class="colorTipContainer yellow"><span class="ui-icon ui-icon-refresh"></span>Redes Sociais</a>
     </div>
+    
 	<div id="formperfil">
 		<form method="POST" enctype="multipart/form-data">
 			 {% if formperfil %}{{formperfil.as_table}}{% endif %}
@@ -30,7 +31,7 @@
 	</div>
 	
 	<div class="pefil_galeria">
-	   
+	    {% if list_fotos %}
 
         {% for foto in list_fotos %}
 				    <div class="galeria_full_perfil">
@@ -44,7 +45,9 @@
 
 	    {% endfor %}
 	    <a href="/perfil/album/" class="ver_mais">Adicionar mais</a>
-
+	    {% else %}
+	    <span> Não possui fotos no album. Para adicionar click <a href="/perfil/album/">aqui</a>  </span>
+	    {% endif %}
 	    
 	</div>
 	

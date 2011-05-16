@@ -114,6 +114,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "processors.enquete",
     "processors.menu",
     "processors.perfis",
+    "processors.aniversariante",
     
     # django 1.2 somente 
     'django.contrib.messages.context_processors.messages' , 

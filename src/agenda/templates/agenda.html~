@@ -78,7 +78,7 @@
 					start: new Date({{evento.inicio|date:"Y"}}, {{evento.inicio|date:"m"}}-1, {{evento.inicio|date:"d"}},{{evento.inicio|date:"h"}},{{evento.inicio|date:"i"}}),
 					end: new Date({{evento.fim|date:"Y"}}, {{evento.fim|date:"m"}}-1, {{evento.fim|date:"d"}},{{evento.inicio|date:"h"}},{{evento.inicio|date:"i"}}),
 					url: '{{evento.url}}',
-					descricao: "'{{evento.descricao|safe}}'",
+					descricao: "{{evento.descricao|safe}}",
 					allDay: false,
                     color:'{{evento.agenda.cor}}'
 

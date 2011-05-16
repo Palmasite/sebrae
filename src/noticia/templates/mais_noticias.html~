@@ -21,7 +21,7 @@
 			{%ifequal mais_noticia.dat_noticia.year mes.year%}
 			{%ifequal mais_noticia.dat_noticia.month mes.month%}
 			<li>
-				<a href="">
+				<a href="{% url noticia.views.detalhar_noticia noticia_id=mais_noticia.int_idnoticia %}">
 				<div class="date">
 					{{mais_noticia.dat_noticia|date:"d \d\e F \d\e Y"}}
 				</div>
