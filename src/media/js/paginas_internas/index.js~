@@ -30,7 +30,7 @@
 
 	            // opening animation
 	            function(done) {
-		            this.getTip().animate({top: '+=50'}, 500, 'bouncy', done).show();
+		            this.getTip().animate({top: '+=5'}, 500, 'bouncy', done).show();
 	            },
 
 	            // closing animation
@@ -121,6 +121,46 @@ function full_banner_fade(){
 
 /**
  * @ Noticia Destaque
+ **/
+var noticia_destaque = $(".noticia_destaque").size();
+var noticia_destaque_id = 1;
+$('#noticia_destaque_'+noticia_destaque_id).fadeIn();
+
+if(noticia_destaque > 1){
+    var interval_noticia = setInterval("noticia_destaque_proximo()",10000);
+}else{
+    $("#ctr_prev").hide();
+    $("#ctr_next").hide();
+}
+
+function noticia_destaque_proximo(){
+	$('#noticia_destaque_'+noticia_destaque_id).fadeOut();
+	
+	if (noticia_destaque_id >= noticia_destaque){
+		noticia_destaque_id = 1;
+	}else{
+		noticia_destaque_id = noticia_destaque_id+1;
+	}
+	$('#noticia_destaque_'+noticia_destaque_id).fadeIn();
+}
+
+function noticia_destaque_anterior(){
+	$('#noticia_destaque_'+noticia_destaque_id).fadeOut();
+	
+	if (noticia_destaque_id < noticia_destaque){
+		noticia_destaque_id = noticia_destaque;
+	}else{
+		noticia_destaque_id = noticia_destaque_id-1;
+	}
+	$('#noticia_destaque_'+noticia_destaque_id).fadeIn();
+}
+
+
+
+
+
+/**
+ * @ aniversariante
  **/
 var noticia_destaque = $(".noticia_destaque").size();
 var noticia_destaque_id = 1;

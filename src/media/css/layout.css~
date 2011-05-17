@@ -223,6 +223,7 @@ h2.header{padding:4px 2px;background: #2F5F9D;color:#fff}
 .enquete label{margin-top:3px}
 .enquete span{width:120px;margin-top:5px}
 .enquete button{width:61px;margin-left:20px}
+.enquete img{cursor:pointer}
 /*
  */
 
@@ -464,12 +465,15 @@ ul.eventos_lista li span{font-weight: bold}
 
 /*  ANIVERSARIANTE */
 
-#aniversariante{position:relative;background:url("../images_portal/aniversariantes.jpg");width:200px;height:340px}
+#aniversariante{position:relative;background:url("../images_portal/aniversariantes.jpg");width:200px;height:236px}
 .aniversariante_foto{height:150px;width:100px;background:#333;position:absolute;top:56px;left:49px }
-.rodape_foto{position:absolute;top:174px;left:24px;background:url("../images_portal/corte_aniversariante.png");height:68px;width:151px}
+.rodape_foto{position:absolute;top:174px;left:24px;background:url("../images_portal/corte_aniversariante.png");height:68px;width:151px;z-index:0}
 
-.aniversariante_nome{position:absolute;top:196px;left:24px;height:68px;width:151px; color:#fff}
+.aniversariante_nome{position:absolute;top:196px;left:24px;height:68px;width:151px; color:#fff; z-index:1}
 
-.aniversariante_data{position:absolute;top:174px;left:24px;height:68px;width:151px; color:#fff}
+.aniversariante_data{position:absolute;top:213px;left:24px;height:68px;width:151px; color:#fff;z-index:2}
+
+.niver_left{position:absolute;top:112px;left:0px;height:10px;width:60px;}
+.niver_rigth{position:absolute;top:112px;left:140px;height:10px;width:60px;}
 
 

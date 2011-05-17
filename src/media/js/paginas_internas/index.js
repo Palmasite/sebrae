@@ -156,3 +156,43 @@ function noticia_destaque_anterior(){
 }
 
 
+
+
+
+/**
+ * @ aniversariante
+ **/
+var noticia_destaque = $(".lista").size();
+var noticia_destaque_id = 1;
+$('#lista_'+noticia_destaque_id).fadeIn();
+
+if(noticia_destaque > 1){
+    var interval_noticia = setInterval("noticia_destaque_proximo()",10000);
+}else{
+    $("#ctr_prev").hide();
+    $("#ctr_next").hide();
+}
+
+function noticia_destaque_proximo(){
+	$('#lista_'+noticia_destaque_id).fadeOut();
+	
+	if (noticia_destaque_id >= noticia_destaque){
+		noticia_destaque_id = 1;
+	}else{
+		noticia_destaque_id = noticia_destaque_id+1;
+	}
+	$('#lista_'+noticia_destaque_id).fadeIn();
+}
+
+function noticia_destaque_anterior(){
+	$('#lista_'+noticia_destaque_id).fadeOut();
+	
+	if (noticia_destaque_id < noticia_destaque){
+		noticia_destaque_id = noticia_destaque;
+	}else{
+		noticia_destaque_id = noticia_destaque_id-1;
+	}
+	$('#lista_'+noticia_destaque_id).fadeIn();
+}
+
+

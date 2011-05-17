@@ -3,26 +3,21 @@
 
 <div id="aniversariante">
 {% for niver in aniversariantes %}
-    <div class="aniversariante_foto">
-        
-        <img src="{{MEDIA_URL}}{{niver.foto}}" >      
-        
-    </div>
-     <div class="rodape_foto">
-        
-        </div>    
-        
-             <div class="aniversariante_nome">
-             
-             {{niver.nome}}
-        
-        </div>    
-        
-             <div class="aniversariante_data">
-             {{niver.datanascimento|date:"d / M"}}
-        
-        </div> 
-{% endfor %}    
+<div id="lista_{{forloop.counter}}" style="display:none" class="lista">
+        <div class="aniversariante_foto "> <img src="{{MEDIA_URL}}{{niver.foto}}" ></div>
+
+        <div class="aniversariante_nome">{{niver.nome}}</div>    
+
+        <div class="aniversariante_data">{{niver.datanascimento|date:"d / M"}} </div>
 </div>
+             
+{% endfor %}   
+        <a class="niver_left" onclick="noticia_destaque_anterior()" id="ctr_prev">  </a>
+        <a class="niver_rigth" onclick="noticia_destaque_proximo()" id="ctr_next">  </a>
+        <div class="rodape_foto"> </div> 
+      
+</div>
+
+
 
 

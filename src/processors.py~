@@ -19,12 +19,8 @@ def auth(request):
     try:
         if request.session['username']:
             auth = True
-<<<<<<< HEAD
-            perfil = Perfil.objects.get(user =request.session['username'] )
-=======
             if Perfil.objects.filter(user =request.session['username']):
                 perfil = Perfil.objects.get(user =request.session['username'] )
->>>>>>> bad946f8a128e757bb29d0c6c73fa9e203ba9eeb
             
         else:
             auth = False
@@ -73,8 +69,9 @@ def publicidade(request):
     return locals()
 
 def enquete(request):
-    enquete = Enquete.objects.filter(boo_ativo = True )[:1]
-    ultima_enquete = Enquete
+    enquete = Enquete.objects.filter(boo_ativo = True )
+    if enquete:
+        ultima_enquete = enquete[0]
     enquete_esolhas = Escolha.objects.filter(enquete=ultima_enquete)
     
     return locals()
@@ -106,7 +103,7 @@ def aniversariante(request):
     agora = datetime.date.today()
     mes  = agora.month
     
-    aniversariantes = ()
+    aniversariantes = []
     
     for niver in todos_aniversariantes:
         if mes == niver.datanascimento.month:

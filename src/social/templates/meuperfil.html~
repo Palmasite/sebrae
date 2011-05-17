@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{%  block titulo %}Galeria imagens{% endblock %}
+{%  block titulo %}Perfil{% endblock %}
 
 {% block direita %}{% endblock %}
 {% block esquerda %}{% endblock %}
@@ -95,7 +95,7 @@
                 
             {% endfor %} 
             
-           <strong style="font-size:14px;text-transform:uppercase;margin:15px;border-bottom:solid 1px #f5f5f5;display:block">Especialização</strong>
+           <strong style="font-size:14px;text-transform:uppercase;margin:15px;border-bottom:solid 1px #333;display:block">Especialização</strong>
             {% for pro in profissional_list%}
            
                

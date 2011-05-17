@@ -73,29 +73,17 @@ def social(request):
     return render_to_response('redes.html', locals(), context_instance=RequestContext(request))
     
 def album_foto(request):
-<<<<<<< HEAD
-    perfil = Perfil.objects.filter(user = request.session['username'])
-    list_fotos = Album.objects.filter(user=request.session['username'])
-      
-    
-    formalbum = AlbumForm(initial = {"user" : request.session['username']})
- 
-    if request.method == "POST":
-=======
     
     perfil_album = Perfil.objects.filter(user = request.session['username'])
     
     try:
-       
->>>>>>> bad946f8a128e757bb29d0c6c73fa9e203ba9eeb
-        
-        list_fotos = Album.objects.filter(perfil=perfil_album[0])
+
+        list_fotos = Album.objects.filter(user=request.session['username'])
           
         #formalbum = AlbumForm()
-        formalbum = AlbumForm(initial = {"perfil":request.session['username']})
+        formalbum = AlbumForm(initial = {"user":request.session['username']})
      
         if request.method == "POST":
-            
             formalbum = AlbumForm(request.POST,request.FILES)
             formalbum.is_valid()
             formalbum.save()
@@ -128,7 +116,7 @@ def meuperfil(request, user_id):
     profissional_list = Profissional.objects.filter(user = user_id)
     contato_list = Contato.objects.filter(user = user_id)
     redes_list = RedeSocial.objects.filter(user = user_id)
-    list_fotos = Album.objects.filter(user=request.session['username'])
+    list_fotos = Album.objects.filter(user=user_id)
 
     return render_to_response('meuperfil.html', locals(), context_instance=RequestContext(request))
     
